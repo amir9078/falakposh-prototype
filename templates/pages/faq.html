@@ -1,0 +1,17 @@
+{% extends "pages/_page.html" %}
+{% block title %}Questions | Falakposh{% endblock %}
+{% block crumb %}Questions{% endblock %}
+{% block h1 %}Questions we get asked.{% endblock %}
+{% block body %}
+<div class="acc">
+  <details open><summary>Do you ship to my country? {{ icons['plus']|safe }}</summary><div class="acc__body"><p>We ship from Dubai to the Gulf, the UK, Europe, the US, Canada, Australia and New Zealand. Checkout shows the cost before you pay.</p></div></details>
+  <details><summary>What does unstitched mean? {{ icons['plus']|safe }}</summary><div class="acc__body"><p>You get the fabric for the shirt, dupatta and trouser, cut to length, with the embroidered patches. A tailor makes it up. Or we do it for you: pick "stitched" on the piece.</p></div></details>
+  <details><summary>Can you stitch it to my size? {{ icons['plus']|safe }}</summary><div class="acc__body"><p>Yes. Choose a standard size, or give us your measurements. It takes {{ site.stitching.days }} days before it ships.</p></div></details>
+  <details><summary>Can I see a piece before I buy? {{ icons['plus']|safe }}</summary><div class="acc__body"><p>Yes. Visit the boutique in Dubai, or book a private appointment. Far away? Ask on WhatsApp and we'll send a video of the piece.</p></div></details>
+  <details><summary>Will I pay customs when it arrives? {{ icons['plus']|safe }}</summary><div class="acc__body"><p>Some countries charge import duty. Where we can, we collect it at checkout so nothing is due at the door.</p></div></details>
+  <details><summary>How do I pay? {{ icons['plus']|safe }}</summary><div class="acc__body"><p>Cards, Apple Pay and pay-in-4 plans at checkout. Prices show in your currency.</p></div></details>
+  <details><summary>How long does a bridal take? {{ icons['plus']|safe }}</summary><div class="acc__body"><p>Most take 10 to 12 weeks from the first visit. Book early if your date is close, and we'll tell you honestly what's possible.</p></div></details>
+  <details><summary>Can I return something? {{ icons['plus']|safe }}</summary><div class="acc__body"><p>Ready-to-wear and unused unstitched fabric, within 14 days. Pieces stitched for you can't be returned, but we'll fix the fit. See <a href="shipping-returns.html">shipping and returns</a>.</p></div></details>
+</div>
+<p class="callout">Draft answers for the prototype. Check every policy line before launch.</p>
+{% endblock %}

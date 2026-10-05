@@ -1,0 +1,11 @@
+{% extends "pages/_page.html" %}
+{% block title %}Photo credits | Falakposh{% endblock %}
+{% block crumb %}Photo credits{% endblock %}
+{% block h1 %}Photo credits.{% endblock %}
+{% block intro %}<p class="ph__line" data-rise>This prototype uses stand-in photos until the Falakposh shoot. The garments in them are not Falakposh pieces.</p>{% endblock %}
+{% block body %}
+<p>Photos from Unsplash are used under the <a href="https://unsplash.com/license">Unsplash License</a>. Two images were generated in Canva for this prototype.</p>
+<ul class="credits">
+  {% for c in site.credits %}<li><span>{{ c.file }}</span>{% if c.url %}<a href="{{ c.url }}">{{ c.by }}</a>{% else %}<b>{{ c.by }}</b>{% endif %}</li>{% endfor %}
+</ul>
+{% endblock %}

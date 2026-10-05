@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% from "partials/card.html" import card %}
+{% block title %}{{ title }} | Falakposh{% endblock %}
+{% block description %}{{ line }}{% endblock %}
+{% block content %}
+{% set fabrics = items|map(attribute='fabric')|unique|sort|list %}
+{% set pieces = items|map(attribute='pieces')|unique|sort|list %}
+<section class="ph">
+  <div class="ph__in wrap">
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">{{ title }}</span></nav>
+      <h1 class="ph__title" data-split>{{ title }}</h1>
+      {% if cat %}<p class="ph__ur" lang="ur" data-rise>{{ cat.urdu }}</p>{% endif %}
+      <p class="ph__line" data-rise>{{ line }}</p>
+    </div>
+    <p class="ph__count" data-count>{{ items|length }} pieces</p>
+  </div>
+</section>
+
+<div class="tools">
+  <div class="tools__in wrap">
+    <div class="tools__l">
+      <button class="tools__btn" type="button" data-toggle-filters>{{ icons['sliders-horizontal']|safe }} Filter</button>
+    </div>
+    <div class="tools__r">
+      <label class="sr" for="sort">Sort by</label>
+      <select id="sort" data-sort>
+        <option value="feat">Featured</option>
+        <option value="new">Newest first</option>
+        <option value="low">Price, low to high</option>
+        <option value="high">Price, high to low</option>
+        <option value="az">Name, A to Z</option>
+      </select>
+      <div class="density" role="group" aria-label="Grid size">
+        <button type="button" data-density="2" aria-label="Two across">{{ icons['square']|safe }}</button>
+        <button type="button" data-density="3" aria-label="Three across">{{ icons['squares-four']|safe }}</button>
+        <button type="button" data-density="4" class="is-on" aria-label="Four across">{{ icons['grid-nine']|safe }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="shop wrap" data-shop>
+  <form class="filters" data-filters aria-label="Filters" onsubmit="return false">
+    <div class="filters__head" style="display:none; justify-content:space-between; align-items:center">
+      <strong>Filter</strong>
+      <button class="icon-btn" type="button" data-close aria-label="Close filters">{{ icons['x']|safe }}</button>
+    </div>
+    {% if not cat %}
+    <fieldset>
+      <legend>Category</legend>
+      {% for c in categories %}<label class="check"><input type="checkbox" name="cat" value="{{ c.slug }}"> {{ c.name }} <em>{{ by_cat.get(c.slug, [])|length }}</em></label>{% endfor %}
+    </fieldset>
+    {% endif %}
+    <fieldset>
+      <legend>Fabric</legend>
+      {% for f in fabrics %}<label class="check"><input type="checkbox" name="fabric" value="{{ f }}"> {{ f }} <em>{{ items|selectattr('fabric', 'equalto', f)|list|length }}</em></label>{% endfor %}
+    </fieldset>
+    {% if pieces|length > 1 %}
+    <fieldset>
+      <legend>Pieces</legend>
+      {% for f in pieces %}<label class="check"><input type="checkbox" name="pieces" value="{{ f }}"> {{ f }}</label>{% endfor %}
+    </fieldset>
+    {% endif %}
+    <fieldset>
+      <legend>Colour</legend>
+      <div class="swatches">
+        {% for p in items|unique(attribute='colour') %}<label style="--sw: {{ p.hex }}" title="{{ p.colour }}"><input type="checkbox" name="colour" value="{{ p.colour }}" aria-label="{{ p.colour }}"></label>{% endfor %}
+      </div>
+    </fieldset>
+    {% set maxp = items|map(attribute='price')|max %}
+    <fieldset>
+      <legend>Price</legend>
+      <div class="range">
+        <label for="pmax">Up to <strong data-price-out>AED {{ maxp|aed }}</strong></label>
+        <input id="pmax" type="range" min="{{ items|map(attribute='price')|min }}" max="{{ maxp }}" step="5" value="{{ maxp }}" data-price-max>
+      </div>
+    </fieldset>
+    <button class="filters__clear" type="button" data-clear>Clear all filters</button>
+  </form>
+
+  <div>
+    <div class="grid grid--4" data-shop-grid>
+      {% for p in items %}{{ card(p, eager=loop.index <= 4) }}{% endfor %}
+    </div>
+    <div class="empty" data-empty hidden>
+      <h2>Nothing matches those filters.</h2>
+      <p>Take one away, or clear them and start again. Saved pieces show here when you tap the heart on any piece.</p>
+      <button class="btn btn--ghost" type="button" data-clear-empty>Clear filters</button>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="ph">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">{% block crumb %}{% endblock %}</span></nav>
+    <h1 class="ph__title" data-split>{% block h1 %}{% endblock %}</h1>
+    {% block intro %}{% endblock %}
+  </div>
+</section>
+<section class="sec" style="padding-top:clamp(24px,3vw,40px)">
+  <div class="prose">
+    {% block body %}{% endblock %}
+  </div>
+</section>
+{% endblock %}

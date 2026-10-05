@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% from "partials/card.html" import card %}
+{% block title %}{{ p.name }}, {{ p.colour }} {{ p.fabric|lower }} | Falakposh{% endblock %}
+{% block description %}{{ p.name }} ({{ p.urdu }}): {{ p.story }}{% endblock %}
+{% block content %}
+{% set unstitched = p.category == 'unstitched' %}
+{% set bridal = p.category == 'bridal' %}
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb" style="margin-top:22px"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="{{ cat.slug }}.html">{{ cat.name }}</a><span aria-hidden="true">/</span><span aria-current="page">{{ p.name }}</span></nav>
+  <div class="pdp" data-pdp data-slug="{{ p.slug }}" data-name="{{ p.name }}" data-base="{{ p.price }}">
+    <div class="gallery">
+      <button class="gallery__main" type="button" data-zoom="img/p-{{ p.slug }}.webp" aria-label="Zoom into {{ p.name }}">
+        <img src="img/p-{{ p.slug }}.webp" width="1000" height="1500" alt="{{ p.name }} in {{ p.colour|lower }}, full length" fetchpriority="high">
+        <span class="gallery__hint" aria-hidden="true">{{ icons['arrows-out']|safe }}</span>
+      </button>
+      <button type="button" data-zoom="img/p-{{ p.slug }}-detail.webp" aria-label="Zoom into the detail of {{ p.name }}">
+        <img src="img/p-{{ p.slug }}-detail-sm.webp" width="560" height="840" alt="Close-up of the {{ p.fabric|lower }}" loading="lazy" decoding="async">
+      </button>
+      <div class="named" style="aspect-ratio:auto; align-self:stretch; align-content:center">
+        <span lang="ur">{{ p.urdu }}</span>
+        <b>Named for {{ p.meaning }}.</b>
+        <span>Every Falakposh piece takes its name from the sky.</span>
+      </div>
+    </div>
+
+    <div class="info">
+      <div>
+        <h1 class="info__name">{{ p.name }} <span class="info__ur" lang="ur">{{ p.urdu }}</span></h1>
+        <p class="info__meaning">{{ p.meaning[:1]|upper }}{{ p.meaning[1:] }}</p>
+      </div>
+      <div>
+        <p class="info__price">{% if p.get('from') %}<span>From</span>{% endif %}<span data-pdp-price data-price="{{ p.price }}">AED {{ p.price|aed }}</span></p>
+        {% if not bridal %}<p class="info__bnpl">Or 4 payments of <span data-bnpl data-price="{{ (p.price / 4)|round(2) }}">AED {{ (p.price / 4)|round(2) }}</span>, interest-free, at checkout.</p>{% endif %}
+      </div>
+      <p class="info__story">{{ p.story }}</p>
+      <div class="facts">
+        <span><b>Colour</b> {{ p.colour }}</span>
+        <span><b>Fabric</b> {{ p.fabric }}</span>
+        <span><b>Pieces</b> {{ p.pieces }}</span>
+      </div>
+
+      {% if bridal %}
+      <div class="opt">
+        <p class="callout">Each bridal is made for one bride, to her measurements. Prices start at the figure above and depend on the work you choose.</p>
+        <a class="btn btn--solid btn--full" href="bridal-appointments.html?look={{ p.slug }}">Book a bridal visit</a>
+        <a class="wa-ask" href="https://wa.me/{{ site.whatsapp }}?text={{ ('Hello Falakposh, I would like to ask about the ' ~ p.name ~ ' bridal.')|urlencode }}">{{ icons['whatsapp-logo']|safe }} Ask about {{ p.name }} on WhatsApp</a>
+      </div>
+      {% else %}
+      <div class="opt">
+        {% if unstitched %}
+        <p class="opt__label"><span>How would you like it?</span></p>
+        <div class="ways" role="radiogroup" aria-label="How would you like it?">
+          <label class="way"><input type="radio" name="way" value="fabric" data-extra="0" checked><b>Unstitched</b><small>The fabric set, as it comes</small><em>Included</em></label>
+          <label class="way"><input type="radio" name="way" value="standard" data-extra="{{ site.stitching.standard }}"><b>Stitched to a standard size</b><small>Ready in {{ site.stitching.days }} days</small><em>+ <span data-price="{{ site.stitching.standard }}">AED {{ site.stitching.standard }}</span></em></label>
+          <label class="way"><input type="radio" name="way" value="measured" data-extra="{{ site.stitching.measured }}"><b>Stitched to your measurements</b><small>Ready in {{ site.stitching.days }} days</small><em>+ <span data-price="{{ site.stitching.measured }}">AED {{ site.stitching.measured }}</span></em></label>
+        </div>
+        {% else %}
+        <input type="radio" name="way" value="rtw" data-extra="0" checked hidden>
+        {% endif %}
+      </div>
+      <div class="opt" data-size-box {% if unstitched %}hidden{% endif %}>
+        <p class="opt__label"><span>Size</span><a href="size-guide.html">Size guide</a></p>
+        <div class="sizes" role="radiogroup" aria-label="Size">
+          {% for s in ['XS', 'S', 'M', 'L', 'XL'] %}<label><input type="radio" name="size" value="{{ s }}"><span>{{ s }}</span></label>{% endfor %}
+        </div>
+        <p class="field__err" data-size-err role="alert"></p>
+      </div>
+      {% if unstitched %}
+      <div class="opt" data-measure-box hidden>
+        <p class="opt__label"><span>Your measurements, in inches</span><a href="size-guide.html#measure">How to measure</a></p>
+        <div class="measure">
+          {% for m in [('bust', 'Bust'), ('waist', 'Waist'), ('hip', 'Hip'), ('shirt', 'Shirt length'), ('sleeve', 'Sleeve'), ('trouser', 'Trouser length')] %}
+          <div class="field"><label for="m-{{ m[0] }}">{{ m[1] }}</label><input id="m-{{ m[0] }}" type="number" inputmode="decimal" min="10" max="70" step="0.5" required></div>
+          {% endfor %}
+        </div>
+        <p class="field__err" data-measure-err role="alert"></p>
+      </div>
+      {% endif %}
+      <div class="buy">
+        <div class="qty"><button type="button" data-pdp-dec aria-label="One fewer">{{ icons['minus']|safe }}</button><span data-pdp-qty>1</span><button type="button" data-pdp-inc aria-label="One more">{{ icons['plus']|safe }}</button></div>
+        <button class="btn btn--solid" type="button" data-add>Add to bag</button>
+        <button class="icon-btn buy__save" type="button" data-wish="{{ p.slug }}" aria-pressed="false" aria-label="Save {{ p.name }}">{{ icons['heart']|safe }}</button>
+      </div>
+      <a class="wa-ask" href="https://wa.me/{{ site.whatsapp }}?text={{ ('Hello Falakposh, I have a question about ' ~ p.name ~ '.')|urlencode }}">{{ icons['whatsapp-logo']|safe }} Ask us about {{ p.name }} on WhatsApp</a>
+      {% endif %}
+
+      <div class="eta">
+        <div class="eta__row">{{ icons['truck']|safe }}
+          <span>Delivery to
+            <label class="sr" for="eta">Your country</label>
+            <select id="eta" data-eta>
+              {% for d in site.delivery %}<option value="{{ d.days }}">{{ d.region }}</option>{% endfor %}
+            </select>: <b data-eta-out>{{ site.delivery[0].days }}</b> working days{% if unstitched %} after stitching, if you choose it{% elif bridal %} once it's made{% endif %}.
+          </span>
+        </div>
+        <div class="eta__row">{{ icons['package']|safe }}<span>Ships from Dubai, tracked all the way.</span></div>
+      </div>
+
+      <div class="acc">
+        <details open>
+          <summary>What's included {{ icons['plus']|safe }}</summary>
+          <ul class="acc__body">{% for i in p.includes %}<li>{{ i }}</li>{% endfor %}</ul>
+        </details>
+        <details>
+          <summary>Fabric and care {{ icons['plus']|safe }}</summary>
+          <div class="acc__body"><p>{{ p.fabric }}. Dry clean the first time. After that, hand wash cold, inside out, and dry in the shade. Press on the reverse.</p></div>
+        </details>
+        <details>
+          <summary>Shipping and returns {{ icons['plus']|safe }}</summary>
+          <div class="acc__body"><p>We ship from Dubai with tracking. {% if bridal %}Bridal is made to order, so it can't be returned. We fix the fit for free.{% elif unstitched %}Unstitched fabric can be returned within 14 days if it's unused. Stitched orders are made for you and can't be returned.{% else %}Return it within 14 days if it's unworn, with the tags on.{% endif %} <a href="shipping-returns.html">Read the full policy</a>.</p></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="related wrap" aria-labelledby="rel-h">
+  <h2 id="rel-h" class="h2" data-split>More from {{ cat.name|lower }}.</h2>
+  <div class="grid grid--4">
+    {% for r in related %}{{ card(r) }}{% endfor %}
+  </div>
+</section>
+
+{% if not bridal %}
+<div class="sticky-buy" data-sticky-buy aria-hidden="true">
+  <div><b>{{ p.name }}</b><br><span data-sticky-price data-price="{{ p.price }}">AED {{ p.price|aed }}</span></div>
+  <button class="btn btn--solid" type="button" data-add tabindex="-1">Add to bag</button>
+</div>
+{% endif %}
+{% endblock %}

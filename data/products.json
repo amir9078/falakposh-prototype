@@ -1,0 +1,471 @@
+{
+ "_note": "Prototype catalogue. Prices are SAMPLE values in AED, to be replaced with the real price list. Images are stand-ins (see CREDITS in site.json).",
+ "products": [
+  {
+   "slug": "shafaq",
+   "name": "Shafaq",
+   "urdu": "شفق",
+   "meaning": "the red glow after sunset",
+   "category": "unstitched",
+   "price": 395,
+   "colour": "Twilight red",
+   "hex": "#a3222b",
+   "fabric": "Embroidered lawn",
+   "pieces": "3-piece",
+   "tags": [
+    "new"
+   ],
+   "story": "Red lawn with a dense white neckline and a scalloped hem. Bright enough for Eid, light enough to breathe in.",
+   "includes": [
+    "Shirt: embroidered lawn, 3.0 m",
+    "Dupatta: printed chiffon, 2.5 m",
+    "Trouser: dyed cambric, 2.5 m",
+    "Embroidered neckline and hem patches"
+   ]
+  },
+  {
+   "slug": "dhoop",
+   "name": "Dhoop",
+   "urdu": "دھوپ",
+   "meaning": "winter sunshine",
+   "category": "unstitched",
+   "price": 365,
+   "colour": "Butter yellow",
+   "hex": "#e9d48e",
+   "fabric": "Embroidered lawn",
+   "pieces": "3-piece",
+   "tags": [
+    "bestseller"
+   ],
+   "story": "Soft yellow lawn with tonal thread work down the front. Light enough for a Dubai afternoon, quiet enough for every day of Eid.",
+   "includes": [
+    "Shirt: embroidered lawn, 3.0 m",
+    "Dupatta: organza, 2.5 m",
+    "Trouser: dyed cambric, 2.5 m",
+    "Embroidered sleeve border"
+   ]
+  },
+  {
+   "slug": "ufaq",
+   "name": "Ufaq",
+   "urdu": "افق",
+   "meaning": "the horizon",
+   "category": "unstitched",
+   "price": 375,
+   "colour": "Powder blue",
+   "hex": "#a9bfdc",
+   "fabric": "Embroidered lawn",
+   "pieces": "3-piece",
+   "tags": [
+    "new"
+   ],
+   "story": "The blue of the sky just above the sea at dusk. Fine white embroidery on the front, a sheer dupatta, and a trouser with a worked hem.",
+   "includes": [
+    "Shirt: embroidered lawn, 3.0 m",
+    "Dupatta: embroidered organza, 2.5 m",
+    "Trouser: dyed cambric, 2.5 m",
+    "Embroidered trouser border"
+   ]
+  },
+  {
+   "slug": "ghata",
+   "name": "Ghata",
+   "urdu": "گھٹا",
+   "meaning": "monsoon clouds",
+   "category": "unstitched",
+   "price": 420,
+   "colour": "Black and white",
+   "hex": "#1c1c22",
+   "fabric": "Embroidered lawn",
+   "pieces": "3-piece",
+   "tags": [],
+   "story": "Black lawn with white thread work and a net dupatta. One outfit that goes everywhere.",
+   "includes": [
+    "Shirt: embroidered lawn, 3.0 m",
+    "Dupatta: embroidered net, 2.5 m",
+    "Trouser: dyed cambric, 2.5 m",
+    "Front and back neckline patches"
+   ]
+  },
+  {
+   "slug": "basant",
+   "name": "Basant",
+   "urdu": "بسنت",
+   "meaning": "the spring kite festival, when the sky fills with kites",
+   "category": "unstitched",
+   "price": 450,
+   "colour": "Mustard and ivory",
+   "hex": "#d9a22b",
+   "fabric": "Jacquard lawn",
+   "pieces": "3-piece",
+   "tags": [],
+   "story": "Mustard jacquard with a striped organza dupatta, named for the day Lahore looks up. Made for mehndi season.",
+   "includes": [
+    "Shirt: jacquard lawn, 3.0 m",
+    "Dupatta: striped organza, 2.5 m",
+    "Trouser: dyed cambric, 2.5 m",
+    "Gota-trimmed sleeve border"
+   ]
+  },
+  {
+   "slug": "sahar",
+   "name": "Sahar",
+   "urdu": "سحر",
+   "meaning": "the hour before dawn",
+   "category": "ready-to-wear",
+   "price": 545,
+   "colour": "Ivory and blush",
+   "hex": "#eee8e0",
+   "fabric": "Embroidered cambric",
+   "pieces": "2-piece",
+   "tags": [
+    "bestseller"
+   ],
+   "story": "Ivory cambric with blush thread work at the hem and cuffs. Stitched, pressed and ready the day it lands.",
+   "includes": [
+    "Kurta: embroidered cambric",
+    "Trouser: straight cambric with embroidered hem",
+    "Sizes XS to XL"
+   ]
+  },
+  {
+   "slug": "shabnam",
+   "name": "Shabnam",
+   "urdu": "شبنم",
+   "meaning": "morning dew",
+   "category": "ready-to-wear",
+   "price": 520,
+   "colour": "Mint",
+   "hex": "#a8d5c2",
+   "fabric": "Embroidered lawn",
+   "pieces": "2-piece",
+   "tags": [
+    "new"
+   ],
+   "story": "Mint lawn with lace insets and a straight trouser. Cool to wear, and it doesn't crush in a suitcase.",
+   "includes": [
+    "Kurta: embroidered lawn with lace insets",
+    "Trouser: lawn with lace hem",
+    "Sizes XS to XL"
+   ]
+  },
+  {
+   "slug": "tulu",
+   "name": "Tulu",
+   "urdu": "طلوع",
+   "meaning": "sunrise",
+   "category": "ready-to-wear",
+   "price": 590,
+   "colour": "Peach",
+   "hex": "#f1c7b4",
+   "fabric": "Raw silk",
+   "pieces": "2-piece",
+   "tags": [],
+   "story": "Peach raw silk with embroidered sleeves. Plain enough for a lunch, special enough for a dholki.",
+   "includes": [
+    "Kurta: raw silk with embroidered sleeves",
+    "Trouser: wide-leg raw silk",
+    "Sizes XS to XL"
+   ]
+  },
+  {
+   "slug": "kiran",
+   "name": "Kiran",
+   "urdu": "کرن",
+   "meaning": "a ray of light",
+   "category": "ready-to-wear",
+   "price": 480,
+   "colour": "Lemon",
+   "hex": "#efe6a5",
+   "fabric": "Cotton net",
+   "pieces": "2-piece",
+   "tags": [],
+   "story": "Pale lemon cotton net over a soft lining. It catches the light the way the name says.",
+   "includes": [
+    "Kurta: embroidered cotton net, lined",
+    "Trouser: straight cambric",
+    "Sizes XS to XL"
+   ]
+  },
+  {
+   "slug": "aftab",
+   "name": "Aftab",
+   "urdu": "آفتاب",
+   "meaning": "the sun",
+   "category": "ready-to-wear",
+   "price": 640,
+   "colour": "Gold",
+   "hex": "#c9a54a",
+   "fabric": "Silk",
+   "pieces": "2-piece",
+   "tags": [
+    "new"
+   ],
+   "story": "Gold silk, cut long and straight, with a flared trouser. One colour, no fuss.",
+   "includes": [
+    "Kurta: silk, lined",
+    "Trouser: flared silk",
+    "Sizes XS to XL"
+   ]
+  },
+  {
+   "slug": "shaam",
+   "name": "Shaam",
+   "urdu": "شام",
+   "meaning": "evening",
+   "category": "ready-to-wear",
+   "price": 690,
+   "colour": "Lilac",
+   "hex": "#a58ab8",
+   "fabric": "Embroidered chiffon",
+   "pieces": "3-piece",
+   "tags": [],
+   "story": "Lilac chiffon with a hand-finished dupatta. The colour of the sky over the Creek at seven.",
+   "includes": [
+    "Kurta: embroidered chiffon, lined",
+    "Dupatta: embroidered chiffon",
+    "Trouser: straight silk",
+    "Sizes XS to XL"
+   ]
+  },
+  {
+   "slug": "dhanak",
+   "name": "Dhanak",
+   "urdu": "دھنک",
+   "meaning": "the rainbow",
+   "category": "ready-to-wear",
+   "price": 340,
+   "colour": "Printed multi",
+   "hex": "#d0603a",
+   "fabric": "Printed cotton",
+   "pieces": "2-piece",
+   "tags": [],
+   "story": "A printed cotton co-ord for days that aren't occasions. Machine washable (yes, really).",
+   "includes": [
+    "Shirt: printed cotton",
+    "Trouser: printed cotton, elastic waist",
+    "Sizes XS to XL"
+   ]
+  },
+  {
+   "slug": "kehkashan",
+   "name": "Kehkashan",
+   "urdu": "کہکشاں",
+   "meaning": "the Milky Way",
+   "category": "formals",
+   "price": 1450,
+   "colour": "Midnight",
+   "hex": "#151c3a",
+   "fabric": "Sequinned chiffon",
+   "pieces": "3-piece",
+   "tags": [
+    "new",
+    "signature"
+   ],
+   "story": "Midnight chiffon with a band of silver and pearl sequins that runs across the body like the Milky Way. Every sequin is sewn by hand.",
+   "includes": [
+    "Kurta: hand-sequinned chiffon, lined",
+    "Dupatta: organza with scalloped silver border",
+    "Trouser: straight midnight silk",
+    "Sizes XS to XL, or made to measure"
+   ]
+  },
+  {
+   "slug": "falak",
+   "name": "Falak",
+   "urdu": "فلک",
+   "meaning": "the sky",
+   "category": "formals",
+   "price": 980,
+   "colour": "Lapis",
+   "hex": "#22397a",
+   "fabric": "Chiffon and organza",
+   "pieces": "3-piece",
+   "tags": [
+    "signature"
+   ],
+   "story": "The piece that gave the house its name. Lapis chiffon scattered with pearl sequins, and an ivory organza dupatta.",
+   "includes": [
+    "Kurta: sequinned chiffon, lined",
+    "Dupatta: ivory organza with embroidered border",
+    "Trouser: straight ivory silk",
+    "Sizes XS to XL, or made to measure"
+   ]
+  },
+  {
+   "slug": "mahtab",
+   "name": "Mahtab",
+   "urdu": "مہتاب",
+   "meaning": "moonlight",
+   "category": "formals",
+   "price": 1250,
+   "colour": "Silver",
+   "hex": "#c9ccd3",
+   "fabric": "Tissue silk",
+   "pieces": "2-piece",
+   "tags": [],
+   "story": "Silver tissue with a high-low hem. It looks pale by day and lit from inside at night.",
+   "includes": [
+    "Kurta: tissue silk, lined",
+    "Trouser: straight tissue silk",
+    "Sizes XS to XL, or made to measure"
+   ]
+  },
+  {
+   "slug": "jugnu",
+   "name": "Jugnu",
+   "urdu": "جگنو",
+   "meaning": "the firefly",
+   "category": "formals",
+   "price": 1180,
+   "colour": "Black and gold",
+   "hex": "#14110c",
+   "fabric": "Velvet",
+   "pieces": "3-piece",
+   "tags": [
+    "bestseller"
+   ],
+   "story": "Black velvet with gold tilla work. Made for winter weddings.",
+   "includes": [
+    "Kurta: velvet with tilla embroidery",
+    "Dupatta: tissue with gold border",
+    "Trouser: silk",
+    "Sizes XS to XL, or made to measure"
+   ]
+  },
+  {
+   "slug": "zohra",
+   "name": "Zohra",
+   "urdu": "زہرہ",
+   "meaning": "Venus, the evening star",
+   "category": "formals",
+   "price": 1090,
+   "colour": "Plum",
+   "hex": "#4a2340",
+   "fabric": "Chiffon",
+   "pieces": "3-piece",
+   "tags": [],
+   "story": "Deep plum chiffon with a zari-trimmed dupatta. Cut long and simple so the work stays the point.",
+   "includes": [
+    "Kurta: chiffon, lined",
+    "Dupatta: chiffon with zari border",
+    "Trouser: straight silk",
+    "Sizes XS to XL, or made to measure"
+   ]
+  },
+  {
+   "slug": "sitara",
+   "name": "Sitara",
+   "urdu": "ستارہ",
+   "meaning": "a star",
+   "category": "formals",
+   "price": 1320,
+   "colour": "Black and silver",
+   "hex": "#202024",
+   "fabric": "Organza",
+   "pieces": "3-piece",
+   "tags": [
+    "new"
+   ],
+   "story": "Black organza with a silver-worked dupatta that does most of the talking.",
+   "includes": [
+    "Kurta: embroidered organza, lined",
+    "Dupatta: organza with silver embroidery",
+    "Trouser: straight silk",
+    "Sizes XS to XL, or made to measure"
+   ]
+  },
+  {
+   "slug": "suraiya",
+   "name": "Suraiya",
+   "urdu": "ثریا",
+   "meaning": "the Pleiades",
+   "category": "bridal",
+   "price": 9500,
+   "from": true,
+   "colour": "Red and gold",
+   "hex": "#9b1c22",
+   "fabric": "Raw silk",
+   "pieces": "Lehnga, choli, dupatta",
+   "tags": [
+    "made-to-order"
+   ],
+   "story": "Red raw silk with zardozi, dabka and kora worked by hand. Made to your measurements over 10 to 12 weeks.",
+   "includes": [
+    "Lehnga, choli and dupatta",
+    "Hand zardozi, dabka and kora",
+    "Made to measure",
+    "Two fittings in Dubai, or by video"
+   ]
+  },
+  {
+   "slug": "badr",
+   "name": "Badr",
+   "urdu": "بدر",
+   "meaning": "the full moon",
+   "category": "bridal",
+   "price": 8800,
+   "from": true,
+   "colour": "Red and silver",
+   "hex": "#7e1a26",
+   "fabric": "Raw silk and net",
+   "pieces": "Lehnga, choli, dupatta",
+   "tags": [
+    "made-to-order"
+   ],
+   "story": "Deep red with silver work for a bride who wants the classic colour in a cooler light.",
+   "includes": [
+    "Lehnga, choli and dupatta",
+    "Hand silver kora and dabka",
+    "Made to measure",
+    "Two fittings in Dubai, or by video"
+   ]
+  },
+  {
+   "slug": "aasmaan",
+   "name": "Aasmaan",
+   "urdu": "آسمان",
+   "meaning": "the heavens",
+   "category": "bridal",
+   "price": 10500,
+   "from": true,
+   "colour": "Teal and gold",
+   "hex": "#1c5a64",
+   "fabric": "Raw silk",
+   "pieces": "Lehnga, choli, dupatta",
+   "tags": [
+    "made-to-order"
+   ],
+   "story": "Teal and antique gold for a nikkah or a walima. Fully hand-worked, made to measure.",
+   "includes": [
+    "Lehnga, choli and dupatta",
+    "Hand zardozi and kora",
+    "Made to measure",
+    "Two fittings in Dubai, or by video"
+   ]
+  },
+  {
+   "slug": "hilal",
+   "name": "Hilal",
+   "urdu": "ہلال",
+   "meaning": "the new crescent moon",
+   "category": "bridal",
+   "price": 7900,
+   "from": true,
+   "colour": "Blush",
+   "hex": "#e3b1b3",
+   "fabric": "Net and organza",
+   "pieces": "Lehnga, choli, dupatta",
+   "tags": [
+    "made-to-order"
+   ],
+   "story": "Soft blush net with a long organza dupatta. For a mehndi, a nikkah, or a bride who isn't wearing red.",
+   "includes": [
+    "Lehnga, choli and dupatta",
+    "Hand pearl and dabka work",
+    "Made to measure",
+    "Two fittings in Dubai, or by video"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+# Falakposh storefront prototype
+
+Live preview: https://amir9078.github.io/falakposh-prototype/ (GitHub Pages, served from the `gh-pages` branch)
+Private copy: https://claude.ai/artifact/N8J1qhEz1PmbmjjxATTL6m
+
+A static prototype of the Falakposh store. It is laid out so each template maps onto a Shopify theme section later.
+
+## Build and preview
+
+```
+"%LOCALAPPDATA%/Python/pythoncore-3.14-64/python.exe" build.py            # pages only
+"%LOCALAPPDATA%/Python/pythoncore-3.14-64/python.exe" build.py --images   # also re-cut every photo
+```
+
+- Output goes to `dist/`, which is committed. The original photos live outside this repo (`../_img_src/full`), so `--images` only works on the machine that has them.
+- Publish to GitHub Pages: `git subtree split --prefix dist -b gh-pages` then push `gh-pages`.
+- Output goes to `dist/`. `dist/_artifact_index.html` is the home page without its document wrapper, for publishing as an Artifact.
+- Local preview: the `falakposh-proto` server in `.claude/launch.json` (port 8190).
+- Screenshots: `node _review/capture.mjs <outDir> page.html [--dark] [--sections] [--size=desktop|mobile]`. Start headless Chrome on port 9334 first if the script can't open it.
+
+## What lives where
+
+| File | What it is | Shopify later |
+|---|---|---|
+| `data/products.json` | 22 pieces, each named after something in the sky | Products |
+| `data/site.json` | Founding year, contact, currencies, delivery times, stitching prices, credits | Theme settings, Markets |
+| `templates/base.html` | Header, nav preview, menu, search, bag drawer, footer | `layout/theme.liquid` + header/footer sections |
+| `templates/index.html` | Home page | `templates/index.json` sections |
+| `templates/collection.html` | Category pages with filters | `templates/collection.json` |
+| `templates/product.html` | Product page, stitching options, sizes | `templates/product.json` |
+| `templates/bridal.html`, `story.html`, `pages/*` | Bridal booking, story, help pages | Page templates |
+| `static/js/sequins.js` | The sequin sky and the sequin "2010" | Theme asset, unchanged |
+
+## Still a sample: confirm before launch
+
+- **Photos**: two are original (Kehkashan, Falak, made in Canva). The rest are Unsplash stand-ins showing other labels' clothes. Replace them all with the Falakposh shoot. Canva's AI image credits ran out on 2026-10-05.
+- **Founding year**: shows 2010. The owner said 2010 or 2011.
+- **Prices, tags** ("New", "Most loved"), **fabric lengths** and **product stories**: samples.
+- **Policies**: stitching prices (AED 120 / 160) and time (7 to 10 days), free UAE delivery over AED 500, delivery windows, 14-day returns, bridal lead time (10 to 12 weeks), two fittings, size chart.
+- **Claims to confirm**: hand embroidery by karigars in Pakistan, checking and packing in Dubai, "we fix the fit for free", a person answers WhatsApp.
+- **Story timeline**: three milestones are marked "Owner to fill in".
+- **Contact**: boutique address, hours, phone and WhatsApp number are placeholders.
+- **Reviews and customer photos**: none yet. Add only real ones the owner has permission to use.
+- **Currency rates**: fixed display rates. Shopify Markets sets live prices.

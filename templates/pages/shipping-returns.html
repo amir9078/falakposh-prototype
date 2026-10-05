@@ -1,0 +1,32 @@
+{% extends "pages/_page.html" %}
+{% block title %}Shipping and returns | Falakposh{% endblock %}
+{% block crumb %}Shipping and returns{% endblock %}
+{% block h1 %}Shipping and returns.{% endblock %}
+{% block intro %}<p class="ph__line" data-rise>Everything ships from our house in Dubai, tracked from our door to yours.</p>{% endblock %}
+{% block body %}
+<p class="callout">Draft policy for the prototype. Delivery times, fees and the returns window need confirming with the carrier and the owner before launch.</p>
+
+<h2>How long it takes.</h2>
+<p>We pack in-stock pieces within one working day. Stitched and made-to-order pieces ship once they're ready.</p>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Where</th><th>Working days</th></tr></thead>
+    <tbody>{% for d in site.delivery %}<tr><td>{{ d.region }}</td><td>{{ d.days }}</td></tr>{% endfor %}</tbody>
+  </table>
+</div>
+
+<h2>What it costs.</h2>
+<p>UAE delivery is free over AED {{ site.free_shipping_uae }}. Everywhere else, you see the exact cost at checkout before you pay.</p>
+<p>Some countries charge import duty or tax when a parcel arrives. Where we can, we collect it at checkout so nothing is due at the door. If we can't for your country, checkout tells you.</p>
+
+<h2>Returns.</h2>
+<ul>
+  <li>Ready-to-wear: return it within 14 days, unworn, with the tags on.</li>
+  <li>Unstitched fabric: return it within 14 days if it's uncut and unused.</li>
+  <li>Stitched for you, and bridal: these are made for you, so we can't take them back. We'll alter the fit for free instead.</li>
+</ul>
+<p>To start a return, message us on <a href="https://wa.me/{{ site.whatsapp }}">WhatsApp</a> or email <a href="mailto:{{ site.email }}">{{ site.email }}</a> with your order number.</p>
+
+<h2>Something wrong?</h2>
+<p>If a piece arrives damaged or isn't what you ordered, tell us within 48 hours with a photo. We'll put it right at our cost.</p>
+{% endblock %}

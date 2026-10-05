@@ -1,0 +1,7 @@
+# local review output and the headless Chrome profile
+_review/shots/
+_review/cdp-profile/
+_review/chrome.log
+_review/publish-files.*
+__pycache__/
+.impeccable/

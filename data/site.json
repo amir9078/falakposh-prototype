@@ -1,0 +1,192 @@
+{
+  "_note": "Site-wide settings. Values marked TBC are waiting on the owner.",
+  "brand": "Falakposh",
+  "brand_urdu": "فلک پوش",
+  "meaning": "dressed in the sky",
+  "founded": 2010,
+  "founded_note": "TBC: owner said 2010 or 2011",
+  "city": "Dubai",
+  "address": "Boutique address TBC, Dubai",
+  "phone": "+971 00 000 0000",
+  "whatsapp": "971000000000",
+  "email": "hello@falakposh.com",
+  "instagram": "falakposh",
+  "base_currency": "AED",
+  "currencies": [
+    {
+      "code": "AED",
+      "rate": 1,
+      "label": "UAE dirham"
+    },
+    {
+      "code": "SAR",
+      "rate": 1.021,
+      "label": "Saudi riyal"
+    },
+    {
+      "code": "USD",
+      "rate": 0.2723,
+      "label": "US dollar"
+    },
+    {
+      "code": "GBP",
+      "rate": 0.2041,
+      "label": "British pound"
+    },
+    {
+      "code": "EUR",
+      "rate": 0.2336,
+      "label": "Euro"
+    },
+    {
+      "code": "CAD",
+      "rate": 0.3757,
+      "label": "Canadian dollar"
+    },
+    {
+      "code": "AUD",
+      "rate": 0.4142,
+      "label": "Australian dollar"
+    }
+  ],
+  "rates_note": "Prototype rates for display only. Shopify Markets sets live prices.",
+  "stitching": {
+    "standard": 120,
+    "measured": 160,
+    "days": "7 to 10",
+    "note": "Proposed service and prices, TBC"
+  },
+  "free_shipping_uae": 500,
+  "delivery": [
+    {
+      "region": "United Arab Emirates",
+      "days": "1 to 2"
+    },
+    {
+      "region": "Saudi Arabia and the Gulf",
+      "days": "3 to 5"
+    },
+    {
+      "region": "United Kingdom and Europe",
+      "days": "4 to 7"
+    },
+    {
+      "region": "United States and Canada",
+      "days": "5 to 8"
+    },
+    {
+      "region": "Australia and New Zealand",
+      "days": "6 to 9"
+    },
+    {
+      "region": "Rest of the world",
+      "days": "7 to 12"
+    }
+  ],
+  "delivery_note": "Proposed delivery windows, to confirm with the carrier",
+  "categories": [
+    {
+      "slug": "unstitched",
+      "name": "Unstitched",
+      "urdu": "ان سلا",
+      "line": "Three-piece fabric sets. Stitch them your way, or let us do it.",
+      "hour": "Subh",
+      "hour_urdu": "صبح",
+      "hero": "p-dhoop"
+    },
+    {
+      "slug": "ready-to-wear",
+      "name": "Ready to wear",
+      "urdu": "سلا ہوا",
+      "line": "Stitched, pressed and ready the day it lands.",
+      "hour": "Dopahar",
+      "hour_urdu": "دوپہر",
+      "hero": "p-sahar"
+    },
+    {
+      "slug": "formals",
+      "name": "Formals",
+      "urdu": "محفل",
+      "line": "Hand-worked pieces for weddings, Eid nights and every dholki in between.",
+      "hour": "Shaam",
+      "hour_urdu": "شام",
+      "hero": "p-falak"
+    },
+    {
+      "slug": "bridal",
+      "name": "Bridal",
+      "urdu": "دلہن",
+      "line": "Made for one bride, to her measurements, with fittings in Dubai or by video.",
+      "hour": "Raat",
+      "hour_urdu": "رات",
+      "hero": "e-bridal-teal"
+    }
+  ],
+  "credits": [
+    {
+      "file": "p-kehkashan, p-falak",
+      "by": "Generated in Canva for this prototype",
+      "url": ""
+    },
+    {
+      "file": "p-shafaq, p-dhoop, p-ufaq, p-ghata, p-sahar, p-shabnam, p-tulu, p-kiran, p-aftab, p-zohra",
+      "by": "Shireen Lakdawala",
+      "url": "https://unsplash.com/@shireenlakdawala1"
+    },
+    {
+      "file": "p-basant, p-shaam, p-sitara, e-mint-dupatta",
+      "by": "Muneeb Malhotra",
+      "url": "https://unsplash.com/@muneebmalhotra"
+    },
+    {
+      "file": "p-suraiya, p-aasmaan, p-hilal, p-badr, e-bridal-teal",
+      "by": "Naeem Ad",
+      "url": "https://unsplash.com/@mnaeemad"
+    },
+    {
+      "file": "p-dhanak",
+      "by": "IMANA",
+      "url": "https://unsplash.com/@imanaindia"
+    },
+    {
+      "file": "p-mahtab",
+      "by": "Syed Ali Aqdas",
+      "url": "https://unsplash.com/@aliclicks306"
+    },
+    {
+      "file": "p-jugnu",
+      "by": "Maryam B",
+      "url": "https://unsplash.com/@maryambatool"
+    },
+    {
+      "file": "e-dupatta-wind",
+      "by": "Muhammad Abdullah",
+      "url": "https://unsplash.com/@abdullah_photography"
+    },
+    {
+      "file": "e-bridal-gold",
+      "by": "Abhishek Sharma",
+      "url": "https://unsplash.com/@abhishekvats"
+    },
+    {
+      "file": "e-sequins",
+      "by": "Jason Leung",
+      "url": "https://unsplash.com/@ninjason"
+    },
+    {
+      "file": "e-hands-sewing",
+      "by": "Elio Santos",
+      "url": "https://unsplash.com/@eliomendes"
+    },
+    {
+      "file": "e-hands-flowers",
+      "by": "Nasim Keshmiri",
+      "url": "https://unsplash.com/@nasimkeshmiri"
+    },
+    {
+      "file": "e-silk-ivory",
+      "by": "Susan Wilkinson",
+      "url": "https://unsplash.com/@susan_wilkinson"
+    }
+  ]
+}
