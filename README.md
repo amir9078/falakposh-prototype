@@ -14,7 +14,7 @@ A static prototype of the Falakposh store. It is laid out so each template maps 
 
 - Output goes to `dist/`, which is committed. The original photos live outside this repo (`../_img_src/full`), so `--images` only works on the machine that has them.
 - Publish to GitHub Pages: `git subtree split --prefix dist -b gh-pages` then push `gh-pages`.
-- Output goes to `dist/`. `dist/_artifact_index.html` is the home page without its document wrapper, for publishing as an Artifact.
+- `dist/_artifact_index.html` is the home page without its document wrapper, for publishing as an Artifact.
 - Local preview: the `falakposh-proto` server in `.claude/launch.json` (port 8190).
 - Screenshots: `node _review/capture.mjs <outDir> page.html [--dark] [--sections] [--size=desktop|mobile]`. Start headless Chrome on port 9334 first if the script can't open it.
 
