@@ -5,3 +5,4 @@ _review/chrome.log
 _review/publish-files.*
 __pycache__/
 .impeccable/
+_review/*.png
