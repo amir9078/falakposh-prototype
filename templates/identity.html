@@ -7,7 +7,7 @@
   /* Three colour directions, as scoped tokens for the mockups on this page. */
   .tone-laal   { --t-bg: #FBF8F4; --t-panel: #F3ECE4; --t-ink: #1C1416; --t-accent: #7B1E2B; --t-zari: #B08D57; --t-soft: #E9DAD2; }
   .tone-firozi { --t-bg: #F7F6F1; --t-panel: #E7EEEA; --t-ink: #102321; --t-accent: #1D6466; --t-zari: #B8925A; --t-soft: #D5E3DF; }
-  .tone-jamun  { --t-bg: #F8F2EF; --t-panel: #EFE3DF; --t-ink: #2A1626; --t-accent: #5C2148; --t-zari: #C09684; --t-soft: #E8D3D1; }
+  .tone-jamun  { --t-bg: #F8F2EF; --t-panel: #EFE3DF; --t-ink: #2A1626; --t-accent: #5C2148; --t-zari: #B07E6C; --t-soft: #E8D3D1; }
 
   .id-cover { position: relative; display: grid; place-items: center; gap: 30px; padding: clamp(70px, 10vw, 130px) var(--gut); background: var(--band); color: var(--band-ink); --zari: var(--band-zari); text-align: center; overflow: hidden; isolation: isolate; }
   .id-cover canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
@@ -158,15 +158,15 @@
 
 <section class="id-sec" style="background:var(--bg-2)" aria-labelledby="dirs-h">
   <div class="wrap">
-    <div class="id-h"><p class="kicker">Colour</p><h2 id="dirs-h" class="title">Three directions</h2><p>Each one is a single signature colour with zari gold for the star, on a warm white ground. The photography stays the hero.</p></div>
+    <div class="id-h"><p class="kicker">Colour</p><h2 id="dirs-h" class="title">Three directions</h2><p>Each one is a single signature colour with a gold for the star, on a warm white ground. The photography stays the hero.</p></div>
     <div class="dirs">
       {% for d in [
-        {'k': 'laal', 'name': 'Laal', 'ur': 'لال', 'line': 'Bridal red. The colour of the shaadi itself, with zari gold. Warm, festive and unmistakably Pakistani couture.', 'pick': true, 'hex': ['#FBF8F4','#F3ECE4','#7B1E2B','#B08D57','#1C1416']},
+        {'k': 'laal', 'name': 'Laal', 'ur': 'لال', 'line': 'Bridal red. The colour of the shaadi itself, with zari gold. Warm, festive and unmistakably Pakistani couture.', 'pick': false, 'hex': ['#FBF8F4','#F3ECE4','#7B1E2B','#B08D57','#1C1416']},
         {'k': 'firozi', 'name': 'Firozi', 'ur': 'فیروزی', 'line': 'Turquoise, the stone of Mughal tilework and the colour of a clear sky. Fresh and calm next to the clothes.', 'pick': false, 'hex': ['#F7F6F1','#E7EEEA','#1D6466','#B8925A','#102321']},
-        {'k': 'jamun', 'name': 'Jamun', 'ur': 'جامن', 'line': 'The deep plum of the jamun fruit, with blush and rose gold. Soft, romantic and evening-ready.', 'pick': false, 'hex': ['#F8F2EF','#EFE3DF','#5C2148','#C09684','#2A1626']}
+        {'k': 'jamun', 'name': 'Jamun', 'ur': 'جامن', 'line': 'The deep plum of the jamun fruit, with blush and rose gold. Soft, romantic and evening-ready.', 'pick': true, 'hex': ['#F8F2EF','#EFE3DF','#5C2148','#B07E6C','#2A1626']}
       ] %}
       <article class="dir tone-{{ d.k }}">
-        <div class="dir__top"><span class="dir__name">{{ d.name }}</span><span class="dir__ur" lang="ur">{{ d.ur }}</span>{% if d.pick %}<span class="dir__pick">Recommended</span>{% endif %}</div>
+        <div class="dir__top"><span class="dir__name">{{ d.name }}</span><span class="dir__ur" lang="ur">{{ d.ur }}</span>{% if d.pick %}<span class="dir__pick">Chosen</span>{% endif %}</div>
         <p class="dir__line">{{ d.line }}</p>
         <div class="sw">{% for h in d.hex %}<i style="background:{{ h }}"></i>{% endfor %}</div>
         <div class="site">
@@ -186,8 +186,8 @@
   </div>
 </section>
 
-<section class="id-sec wrap tone-laal" aria-labelledby="apps-h">
-  <div class="id-h"><p class="kicker">In use, in Laal</p><h2 id="apps-h" class="title">Bag, tag, card, tissue and Instagram</h2></div>
+<section class="id-sec wrap tone-jamun" aria-labelledby="apps-h">
+  <div class="id-h"><p class="kicker">In use, in Jamun</p><h2 id="apps-h" class="title">Bag, tag, card, tissue and Instagram</h2></div>
   <div class="apps">
     <div class="app app--bag"><div class="mbag__body">{{ stacked() }}</div></div>
     <div class="app app--tag"><div class="tag">{{ mark() }}<small>Falakposh<br>Dubai</small></div></div>
@@ -208,9 +208,9 @@
 </section>
 
 <section class="choose" aria-labelledby="choose-h">
-  <h2 id="choose-h" class="title">Which direction feels like Falakposh?</h2>
-  <p>The live site is set in Laal. Firozi or Jamun is a one-line switch.</p>
-  <a class="btn btn--solid" href="index.html">See the site in Laal</a>
+  <h2 id="choose-h" class="title">The house colour is Jamun</h2>
+  <p>The live site is set in Jamun. Laal and Firozi stay here for reference.</p>
+  <a class="btn btn--solid" href="index.html">See the site in Jamun</a>
 </section>
 {% endblock %}
 {% block scripts %}<script src="assets/js/sequins.js" defer></script>

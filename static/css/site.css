@@ -1,29 +1,29 @@
 /* Falakposh storefront prototype.
-   Palette, Laal: warm white, laal (bridal red) as the one signature colour, zari gold for the star, hairlines,
+   Palette, Jamun: blush white, jamun (deep plum) as the one signature colour, rose gold for the star, hairlines,
    the seal and the sequin flashes only. The photography carries the rest.
    One night band per page (the sequin sky). Shape: square corners; icon buttons are circles; the mehrab
    arch frames only editorial photos composed for it. Theme: Din (day) and Raat (night). */
 
 :root {
-  --bg: #fbf8f4;
-  --bg-2: #f3ece4;
-  --surface: #fffdfb;
-  --ink: #1c1416;
-  --ink-2: #4a3e40;
-  --ink-3: #72666a;
-  --line: rgba(28, 20, 22, .12);
-  --line-2: rgba(28, 20, 22, .26);
-  --accent: #7b1e2b;          /* laal: bridal red, the signature colour */
-  --zari: #b08d57;            /* zari gold, for the star, hairlines and the seal only */
-  --on-solid: #fbf8f4;
-  --scrim: rgba(20, 10, 12, .5);
-  --band: #1a0f12;
-  --band-2: #261719;
-  --band-ink: #f6eee6;
-  --band-ink-2: #cfbfb8;
-  --band-zari: #d2b07a;
-  --sequin: 52, 30, 34;
-  --sequin-tint: 176, 141, 87;
+  --bg: #f8f2ef;
+  --bg-2: #efe3df;
+  --surface: #fffaf8;
+  --ink: #2a1626;
+  --ink-2: #533f4d;
+  --ink-3: #6f5c69;
+  --line: rgba(42, 22, 38, .12);
+  --line-2: rgba(42, 22, 38, .26);
+  --accent: #5c2148;          /* jamun: deep plum, the signature colour */
+  --zari: #b07e6c;            /* rose gold, for the star, hairlines and the seal only */
+  --on-solid: #f8f2ef;
+  --scrim: rgba(24, 10, 20, .5);
+  --band: #1d0f19;
+  --band-2: #2b1925;
+  --band-ink: #f6eeec;
+  --band-ink-2: #d4c2ca;
+  --band-zari: #dcb2a0;
+  --sequin: 60, 28, 52;
+  --sequin-tint: 176, 126, 108;
 
   --f-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
   --f-ui: "Jost", "Futura", "Avenir Next", system-ui, sans-serif;
@@ -46,48 +46,48 @@
 }
 
 :root[data-theme="dark"] {
-  --bg: #140c0e;
-  --bg-2: #1e1416;
-  --surface: #231719;
-  --ink: #f6eee6;
-  --ink-2: #d8cbc4;
-  --ink-3: #ab9d97;
-  --line: rgba(246, 238, 230, .12);
-  --line-2: rgba(246, 238, 230, .26);
-  --accent: #d9808b;
-  --zari: #d2b07a;
-  --on-solid: #140c0e;
-  --scrim: rgba(6, 2, 3, .62);
-  --band: #0d0708;
-  --band-2: #1a1012;
-  --band-ink: #f6eee6;
-  --band-ink-2: #cfbfb8;
-  --band-zari: #d9b984;
-  --sequin: 238, 226, 214;
-  --sequin-tint: 210, 176, 122;
+  --bg: #140b12;
+  --bg-2: #1e121b;
+  --surface: #24161f;
+  --ink: #f6eeec;
+  --ink-2: #d9cad0;
+  --ink-3: #ab99a4;
+  --line: rgba(246, 238, 236, .12);
+  --line-2: rgba(246, 238, 236, .26);
+  --accent: #c897b0;
+  --zari: #dcb2a0;
+  --on-solid: #140b12;
+  --scrim: rgba(8, 3, 7, .62);
+  --band: #0c060a;
+  --band-2: #1a0f17;
+  --band-ink: #f6eeec;
+  --band-ink-2: #d4c2ca;
+  --band-zari: #e2bba9;
+  --sequin: 240, 228, 230;
+  --sequin-tint: 222, 182, 164;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #140c0e;
-    --bg-2: #1e1416;
-    --surface: #231719;
-    --ink: #f6eee6;
-    --ink-2: #d8cbc4;
-    --ink-3: #ab9d97;
-    --line: rgba(246, 238, 230, .12);
-    --line-2: rgba(246, 238, 230, .26);
-    --accent: #d9808b;
-    --zari: #d2b07a;
-    --on-solid: #140c0e;
-    --scrim: rgba(6, 2, 3, .62);
-    --band: #0d0708;
-    --band-2: #1a1012;
-    --band-ink: #f6eee6;
-    --band-ink-2: #cfbfb8;
-    --band-zari: #d9b984;
-    --sequin: 238, 226, 214;
-    --sequin-tint: 210, 176, 122;
+    --bg: #140b12;
+    --bg-2: #1e121b;
+    --surface: #24161f;
+    --ink: #f6eeec;
+    --ink-2: #d9cad0;
+    --ink-3: #ab99a4;
+    --line: rgba(246, 238, 236, .12);
+    --line-2: rgba(246, 238, 236, .26);
+    --accent: #c897b0;
+    --zari: #dcb2a0;
+    --on-solid: #140b12;
+    --scrim: rgba(8, 3, 7, .62);
+    --band: #0c060a;
+    --band-2: #1a0f17;
+    --band-ink: #f6eeec;
+    --band-ink-2: #d4c2ca;
+    --band-zari: #e2bba9;
+    --sequin: 240, 228, 230;
+    --sequin-tint: 222, 182, 164;
     color-scheme: dark;
   }
 }
@@ -394,8 +394,8 @@ ul, ol { padding: 0; list-style: none; }
 .night .title { color: var(--band-ink); font-size: clamp(2.6rem, 5vw, 4.6rem); }
 .night__ur { font-family: var(--f-ur-display); font-size: clamp(3rem, 6vw, 5.4rem); color: var(--band-zari); direction: rtl; line-height: 1.35; }
 .night__p { color: var(--band-ink-2); max-width: 44ch; }
-.night .card { --ink: var(--band-ink); --ink-2: var(--band-ink-2); --ink-3: var(--band-ink-2); --bg-2: var(--band-2); --surface: var(--band-2); --line-2: rgba(242, 237, 228, .3); }
-.night .link { border-color: rgba(242, 237, 228, .3); }
+.night .card { --ink: var(--band-ink); --ink-2: var(--band-ink-2); --ink-3: var(--band-ink-2); --bg-2: var(--band-2); --surface: var(--band-2); --line-2: rgba(246, 238, 236, .3); }
+.night .link { border-color: rgba(246, 238, 236, .3); }
 
 /* rail */
 .rail { min-width: 0; }
@@ -407,7 +407,7 @@ ul, ol { padding: 0; list-style: none; }
 @media (min-width: 900px) { .rail__track > .card { flex-basis: clamp(240px, 19vw, 300px); } }
 .rail__nav { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; }
 .rail__btns { display: flex; gap: 8px; }
-.night .icon-btn--line { border-color: rgba(242, 237, 228, .3); color: var(--band-ink); }
+.night .icon-btn--line { border-color: rgba(246, 238, 236, .3); color: var(--band-ink); }
 .night .icon-btn:hover { background: var(--band-2); }
 
 /* cards */
@@ -468,15 +468,15 @@ ul, ol { padding: 0; list-style: none; }
 .compare:focus-within .compare__needle { outline: 1.5px solid var(--zari); outline-offset: 3px; }
 
 /* bridal band */
-.bridal-band { position: relative; min-height: min(94vh, 880px); display: grid; align-items: end; overflow: hidden; color: #f2ede4; isolation: isolate; }
+.bridal-band { position: relative; min-height: min(94vh, 880px); display: grid; align-items: end; overflow: hidden; color: #f6eeec; isolation: isolate; }
 .bridal-band__media { position: absolute; inset: -6% 0; z-index: -2; }
 .bridal-band__media img { width: 100%; height: 100%; object-fit: cover; }
-.bridal-band::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(10, 8, 6, 0) 35%, rgba(10, 8, 6, .82) 100%), linear-gradient(90deg, rgba(10, 8, 6, .5), rgba(10, 8, 6, 0) 60%); }
+.bridal-band::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(18, 7, 15, 0) 35%, rgba(18, 7, 15, .82) 100%), linear-gradient(90deg, rgba(18, 7, 15, .5), rgba(18, 7, 15, 0) 60%); }
 .bridal-band__copy { padding-block: clamp(60px, 9vw, 120px); display: grid; gap: 20px; justify-items: start; }
-.bridal-band .kicker { color: #d9cfbf; }
-.bridal-band .title { color: #f5f2ed; }
-.bridal-band .title em { color: #d4b77c; }
-.bridal-band__copy p { max-width: 42ch; font-size: var(--fs-lede); color: #ddd4c6; }
+.bridal-band .kicker { color: #ddcdd2; }
+.bridal-band .title { color: #f8f2ef; }
+.bridal-band .title em { color: #e2bba9; }
+.bridal-band__copy p { max-width: 42ch; font-size: var(--fs-lede); color: #e2d4d8; }
 
 /* atelier: two photos and a few lines */
 .atelier__in { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px, 5vw, 90px); align-items: center; }
@@ -653,14 +653,14 @@ body:has(.sticky-buy.is-on) .proto-tag { bottom: calc(80px + env(safe-area-inset
 .related .title { margin-bottom: 38px; }
 
 /* ---------- bridal page ---------- */
-.bhero { position: relative; min-height: calc(100dvh - var(--hdr-h) - 34px); display: grid; align-items: end; color: #f2ede4; overflow: hidden; isolation: isolate; }
+.bhero { position: relative; min-height: calc(100dvh - var(--hdr-h) - 34px); display: grid; align-items: end; color: #f6eeec; overflow: hidden; isolation: isolate; }
 .bhero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; animation: settle 2.4s var(--ease) both; }
-.bhero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(10, 8, 6, .05), rgba(10, 8, 6, .85)); }
+.bhero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(18, 7, 15, .05), rgba(18, 7, 15, .85)); }
 .bhero__copy { padding-block: clamp(48px, 8vw, 110px); display: grid; gap: 20px; justify-items: start; }
-.bhero .kicker { color: #d9cfbf; }
+.bhero .kicker { color: #ddcdd2; }
 .bhero h1 { font: 400 clamp(2.8rem, 6.4vw, 6rem)/.96 var(--f-display); letter-spacing: -.02em; max-width: 14ch; }
-.bhero h1 em { color: #d4b77c; }
-.bhero p { max-width: 44ch; font-size: var(--fs-lede); color: #ddd4c6; }
+.bhero h1 em { color: #e2bba9; }
+.bhero p { max-width: 44ch; font-size: var(--fs-lede); color: #e2d4d8; }
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
 .steps li { padding: 30px 26px 0 0; display: grid; gap: 10px; align-content: start; }
 .steps li + li { padding-left: 26px; border-left: 1px solid var(--line); }
