@@ -28,7 +28,7 @@
       const theme = document.documentElement.dataset.theme;
       const dark = theme ? theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
       // the night band is always dark: champagne sequins with zari gold among them
-      C = night ? { base: [226, 214, 190], tint: [201, 169, 107], dark: true } : { base: rgb('--sequin'), tint: rgb('--sequin-tint'), dark };
+      C = night ? { base: [234, 220, 218], tint: [214, 168, 148], dark: true } : { base: rgb('--sequin'), tint: rgb('--sequin-tint'), dark };
     };
 
     let s = 20101;
