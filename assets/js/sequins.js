@@ -21,13 +21,14 @@
     const light = { x: 0, y: 0, z: mode === 'band' ? 380 : 260 }, target = { x: 0, y: 0 };
     let lastPointer = 0, visible = false, raf = 0, t0 = performance.now(), started = mode === 'band';
 
+    const night = canvas.dataset.tone === 'night';
     const readColors = () => {
       const cs = getComputedStyle(document.documentElement);
       const rgb = (n) => cs.getPropertyValue(n).trim().split(',').map(Number);
       const theme = document.documentElement.dataset.theme;
       const dark = theme ? theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-      C = { base: rgb('--sequin'), tint: rgb('--sequin-tint'), dark };
-      if (mode === 'text') C.base = dark ? rgb('--sequin') : [44, 64, 132]; // lapis sequins on a light ground
+      // the night band is always dark: champagne sequins with zari gold among them
+      C = night ? { base: [226, 214, 190], tint: [201, 169, 107], dark: true } : { base: rgb('--sequin'), tint: rgb('--sequin-tint'), dark };
     };
 
     let s = 20101;
@@ -44,11 +45,11 @@
     };
 
     const buildBand = () => {
-      const arch = rectIn(host.querySelector('.hero__arch'));
+      const arch = rectIn(host.querySelector('[data-sky-focus]') || host.querySelector('.hero__arch'));
       const cx = arch ? (arch.x0 + arch.x1) / 2 : W * 0.7, cy = arch ? (arch.y0 + arch.y1) / 2 : H * 0.5;
       const ang = -0.62, ux = Math.cos(ang), uy = Math.sin(ang), px = -uy, py = ux, reach = Math.hypot(W, H);
       band = { cx, cy, ux, uy, px, py, width: Math.min(W, H) * 0.16 };
-      const copy = rectIn(host.querySelector('.hero__copy'), 18);
+      const copy = rectIn(host.querySelector('[data-sky-clear]') || host.querySelector('.hero__copy'), 18);
       const n = Math.round(Math.min(coarse ? 420 : 1300, (W * H) / (coarse ? 800 : 900)));
       for (let i = 0; i < n; i++) {
         const inBand = rnd() < 0.86;
@@ -136,10 +137,10 @@
         let lx = light.x - q.x, ly = light.y - q.y, lz = light.z;
         const ll = Math.hypot(lx, ly, lz); lx /= ll; ly /= ll; lz /= ll;
         let hx = lx, hy = ly, hz = lz + 1; const hl = Math.hypot(hx, hy, hz); hx /= hl; hy /= hl; hz /= hl;
-        const spec = Math.pow(Math.max(0, q.nx * hx + q.ny * hy + q.nz * hz), text ? 70 : 140);
+        const spec = Math.pow(Math.max(0, q.nx * hx + q.ny * hy + q.nz * hz), text ? 160 : 140);
         const diff = Math.max(0, q.nx * lx + q.ny * ly + q.nz * lz);
         const c = q.tint && !text ? tint : base;
-        const lum = text ? (dark ? 0.5 + diff * 0.45 : 0.78 + diff * 0.45) : (dark ? 0.42 + diff * 0.5 : 0.62 + diff * 0.3);
+        const lum = text ? (dark ? 0.5 + diff * 0.45 : 0.7 + diff * 0.5) : (dark ? 0.42 + diff * 0.5 : 0.62 + diff * 0.3);
         const glint = Math.min(1, spec * 1.4);
         const R = Math.min(255, c[0] * lum + glint * 140), G = Math.min(255, c[1] * lum + glint * 140), B = Math.min(255, c[2] * lum + glint * 140);
         const alpha = (text ? 0.95 : (dark ? 0.62 : 0.72) + glint * 0.3) * k * q.fade;
