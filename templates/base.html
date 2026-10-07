@@ -1,4 +1,4 @@
-{%- from "partials/logo.html" import lockup, stacked -%}
+{%- from "partials/logo.html" import lockup, stacked, mark -%}
 <!doctype html>
 <html lang="en" data-page="{{ page_id }}">
 <head>
@@ -7,9 +7,9 @@
 <title>{% block title %}Falakposh | Pakistani couture, Dubai{% endblock %}</title>
 <meta name="description" content="{% block description %}Pakistani unstitched, ready-to-wear, formals and bridal from our Dubai house, since {{ site.founded }}. Shipped worldwide from Dubai.{% endblock %}">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#F5F2ED" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#110E0B" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2317130F'/%3E%3Cpath d='M16 5.5l1.7 8.8 6.4 1.7-6.4 1.7L16 26.5l-1.7-8.8L7.9 16l6.4-1.7z' fill='%23C9A96B'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#FBF8F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#140C0E" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%237B1E2B'/%3E%3Cpath d='M16 5.5l1.7 8.8 6.4 1.7-6.4 1.7L16 26.5l-1.7-8.8L7.9 16l6.4-1.7z' fill='%23D2B07A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Gulzar&family=Jost:wght@300..600&family=Noto+Nastaliq+Urdu:wght@400..600&display=swap">
@@ -18,6 +18,10 @@
   /* Din (day) or Raat (night): set before paint so the page never flashes the wrong theme. */
   (function () {
     try { var t = localStorage.getItem('fp-theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+    /* The writing intro: home page only, once per session, never with reduced motion. */
+    try {
+      if (document.documentElement.getAttribute('data-page') === 'home' && !sessionStorage.getItem('fp-intro') && !matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('intro-on');
+    } catch (e) {}
   })();
 </script>
 {% block head %}{% endblock %}
@@ -39,6 +43,9 @@
   </defs>
 </svg>
 
+{% if page_id == 'home' %}
+<div class="intro" data-intro aria-hidden="true">{{ stacked() }}<span class="intro__skip">Tap to enter</span></div>
+{% endif %}
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="ann" role="region" aria-label="Announcements">
@@ -184,7 +191,7 @@
 </main>
 
 <footer class="ftr">
-  <div class="ftr__mark">{{ stacked() }}</div>
+  <div class="ftr__mark" data-write>{{ stacked() }}</div>
   <div class="ftr__grid">
     <div class="ftr__col ftr__about">
       <p>Unstitched, ready to wear, formals and bridal from our house in Dubai. Shipped worldwide.</p>
@@ -210,7 +217,7 @@
         <li><a href="story.html">Our story</a></li>
         <li><a href="bridal-appointments.html">Bridal appointments</a></li>
         <li><a href="visit.html">Visit us in Dubai</a></li>
-        <li><a href="brand.html">Brand</a></li>
+        <li><a href="identity.html">Identity</a></li>
         <li><a href="credits.html">Photo credits</a></li>
       </ul>
     </nav>
@@ -235,6 +242,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="assets/js/app.js" defer></script>
+<script src="assets/js/logo.js" defer></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>

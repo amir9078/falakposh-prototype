@@ -24,7 +24,7 @@ const loaded = once('Page.loadEventFired');
 await send('Page.navigate', { url });
 await loaded;
 await send('Runtime.evaluate', { expression: 'document.fonts.ready.then(()=>true)', awaitPromise: true });
-await sleep(2500);
+await sleep(+(process.argv.find((a) => a.startsWith('--wait='))?.slice(7) || 2500));
 let clip;
 if (full) {
   const r = await send('Runtime.evaluate', { expression: 'document.documentElement.scrollHeight', returnByValue: true });

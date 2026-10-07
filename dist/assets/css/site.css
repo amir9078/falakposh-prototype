@@ -1,29 +1,29 @@
 /* Falakposh storefront prototype.
-   Palette, Kohl and Zari: muslin ivory, kohl black, zari gold. Gold is decoration only (the star, hairlines,
-   the seal, sequin flashes); text and buttons stay kohl and ivory so the clothes carry the colour.
+   Palette, Laal: warm white, laal (bridal red) as the one signature colour, zari gold for the star, hairlines,
+   the seal and the sequin flashes only. The photography carries the rest.
    One night band per page (the sequin sky). Shape: square corners; icon buttons are circles; the mehrab
    arch frames only editorial photos composed for it. Theme: Din (day) and Raat (night). */
 
 :root {
-  --bg: #f5f2ed;
-  --bg-2: #ece7df;
-  --surface: #fbf9f6;
-  --ink: #17130f;
-  --ink-2: #463f37;
-  --ink-3: #6b6359;
-  --line: rgba(23, 19, 15, .12);
-  --line-2: rgba(23, 19, 15, .26);
-  --accent: #7f6134;          /* zari, deep enough to read as text */
-  --zari: #a8864c;            /* zari, for marks and hairlines */
-  --on-solid: #f5f2ed;
-  --scrim: rgba(14, 11, 8, .5);
-  --band: #17130f;
-  --band-2: #211c16;
-  --band-ink: #f2ede4;
-  --band-ink-2: #c9bfb0;
-  --band-zari: #c9a96b;
-  --sequin: 46, 39, 32;       /* rgb triplets read by the sequin canvas */
-  --sequin-tint: 168, 134, 76;
+  --bg: #fbf8f4;
+  --bg-2: #f3ece4;
+  --surface: #fffdfb;
+  --ink: #1c1416;
+  --ink-2: #4a3e40;
+  --ink-3: #72666a;
+  --line: rgba(28, 20, 22, .12);
+  --line-2: rgba(28, 20, 22, .26);
+  --accent: #7b1e2b;          /* laal: bridal red, the signature colour */
+  --zari: #b08d57;            /* zari gold, for the star, hairlines and the seal only */
+  --on-solid: #fbf8f4;
+  --scrim: rgba(20, 10, 12, .5);
+  --band: #1a0f12;
+  --band-2: #261719;
+  --band-ink: #f6eee6;
+  --band-ink-2: #cfbfb8;
+  --band-zari: #d2b07a;
+  --sequin: 52, 30, 34;
+  --sequin-tint: 176, 141, 87;
 
   --f-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
   --f-ui: "Jost", "Futura", "Avenir Next", system-ui, sans-serif;
@@ -46,48 +46,48 @@
 }
 
 :root[data-theme="dark"] {
-  --bg: #110e0b;
-  --bg-2: #1a1612;
-  --surface: #1e1a15;
-  --ink: #f2ede4;
-  --ink-2: #d2c9bb;
-  --ink-3: #a59c8e;
-  --line: rgba(242, 237, 228, .12);
-  --line-2: rgba(242, 237, 228, .26);
-  --accent: #cdae72;
-  --zari: #c9a96b;
-  --on-solid: #110e0b;
-  --scrim: rgba(4, 3, 2, .62);
-  --band: #0a0806;
-  --band-2: #16120e;
-  --band-ink: #f2ede4;
-  --band-ink-2: #c9bfb0;
-  --band-zari: #d4b77c;
-  --sequin: 236, 229, 216;
-  --sequin-tint: 201, 169, 107;
+  --bg: #140c0e;
+  --bg-2: #1e1416;
+  --surface: #231719;
+  --ink: #f6eee6;
+  --ink-2: #d8cbc4;
+  --ink-3: #ab9d97;
+  --line: rgba(246, 238, 230, .12);
+  --line-2: rgba(246, 238, 230, .26);
+  --accent: #d9808b;
+  --zari: #d2b07a;
+  --on-solid: #140c0e;
+  --scrim: rgba(6, 2, 3, .62);
+  --band: #0d0708;
+  --band-2: #1a1012;
+  --band-ink: #f6eee6;
+  --band-ink-2: #cfbfb8;
+  --band-zari: #d9b984;
+  --sequin: 238, 226, 214;
+  --sequin-tint: 210, 176, 122;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #110e0b;
-    --bg-2: #1a1612;
-    --surface: #1e1a15;
-    --ink: #f2ede4;
-    --ink-2: #d2c9bb;
-    --ink-3: #a59c8e;
-    --line: rgba(242, 237, 228, .12);
-    --line-2: rgba(242, 237, 228, .26);
-    --accent: #cdae72;
-    --zari: #c9a96b;
-    --on-solid: #110e0b;
-    --scrim: rgba(4, 3, 2, .62);
-    --band: #0a0806;
-    --band-2: #16120e;
-    --band-ink: #f2ede4;
-    --band-ink-2: #c9bfb0;
-    --band-zari: #d4b77c;
-    --sequin: 236, 229, 216;
-    --sequin-tint: 201, 169, 107;
+    --bg: #140c0e;
+    --bg-2: #1e1416;
+    --surface: #231719;
+    --ink: #f6eee6;
+    --ink-2: #d8cbc4;
+    --ink-3: #ab9d97;
+    --line: rgba(246, 238, 230, .12);
+    --line-2: rgba(246, 238, 230, .26);
+    --accent: #d9808b;
+    --zari: #d2b07a;
+    --on-solid: #140c0e;
+    --scrim: rgba(6, 2, 3, .62);
+    --band: #0d0708;
+    --band-2: #1a1012;
+    --band-ink: #f6eee6;
+    --band-ink-2: #cfbfb8;
+    --band-zari: #d9b984;
+    --sequin: 238, 226, 214;
+    --sequin-tint: 210, 176, 122;
     color-scheme: dark;
   }
 }
@@ -119,11 +119,55 @@ ul, ol { padding: 0; list-style: none; }
 .ur-d { font-family: var(--f-ur-display); direction: rtl; line-height: 1.7; }
 .i { width: 1.25em; height: 1.25em; fill: currentColor; flex: none; }
 
-/* marks */
-.mark { display: block; overflow: visible; }
-.mark text { font-kerning: normal; }
-.mark-star { fill: var(--zari); }
-.mark-line { stroke: var(--zari); }
+/* ---------- the calligraphic logo ----------
+   Gulzar Nastaliq outlines (vector, no font needed) with a zari star as the dot of fa.
+   At rest it is simply drawn. .is-writing plays the calligrapher's order: each letter body is traced in
+   zari and then inked, right to left; the dots go in; the star falls into place; the English settles.
+   .is-live adds a slow twinkle; hovering the header logo twinkles once. */
+.fp-logo { display: block; overflow: visible; color: inherit; }
+.fp-logo .fp-ink, .fp-logo .fp-dot path, .fp-logo .fp-letter path { fill: currentColor; }
+.fp-logo .fp-trace { fill: none; stroke: none; }
+.fp-logo .fp-star path { fill: var(--zari); }
+.fp-logo .fp-glow { fill: var(--zari); opacity: 0; }
+.fp-logo .fp-rule { stroke: var(--zari); stroke-width: 6; }
+.fp-logo .fp-ring { fill: none; stroke: var(--zari); stroke-width: 4; }
+.fp-logo .fp-ring--thin { stroke-width: 2; }
+.fp-logo .fp-ring-text { font: 48px var(--f-display); fill: currentColor; letter-spacing: .02em; }
+.fp-logo .fp-sub { font: 500 78px var(--f-ui); letter-spacing: 34px; fill: currentColor; }
+.fp-logo .fp-star, .fp-logo .fp-glow, .fp-logo .fp-dot, .fp-logo .fp-letter, .fp-logo .fp-rule, .fp-logo .fp-body { transform-box: fill-box; transform-origin: center; }
+
+.fp-logo.is-writing .fp-trace { stroke: var(--zari); stroke-width: 9; stroke-dasharray: 1 1; stroke-dashoffset: 1; animation: fpTrace 1s cubic-bezier(.45, 0, .2, 1) calc(var(--i) * .24s + .15s) forwards; }
+.fp-logo.is-writing .fp-ink { clip-path: inset(0 0 0 100%); animation: fpInk .75s cubic-bezier(.6, 0, .2, 1) calc(var(--i) * .24s + .7s) forwards; }
+.fp-logo.is-writing .fp-dot { opacity: 0; animation: fpDot .5s cubic-bezier(.3, 1.7, .5, 1) calc(var(--i) * .16s + 2.05s) forwards; }
+.fp-logo.is-writing .fp-star { opacity: 0; animation: fpStar 1.05s cubic-bezier(.2, .75, .25, 1) 2.35s forwards; }
+.fp-logo.is-writing .fp-glow { animation: fpGlow 1s ease-out 3.25s; }
+.fp-logo.is-writing .fp-rule { transform: scaleX(0); animation: fpRule .9s cubic-bezier(.16, 1, .3, 1) 2.5s forwards; }
+.fp-logo.is-writing .fp-letter { opacity: 0; animation: fpLetter 1.1s cubic-bezier(.16, 1, .3, 1) calc(var(--i) * .045s + 2.65s) forwards; }
+.fp-logo.is-writing .fp-sub { opacity: 0; animation: fpFade .8s ease 3.3s forwards; }
+@keyframes fpTrace { 0% { stroke-dashoffset: 1; } 70% { stroke-opacity: 1; } 100% { stroke-dashoffset: 0; stroke-opacity: 0; } }
+@keyframes fpInk { to { clip-path: inset(0 0 0 0); } }
+@keyframes fpDot { from { opacity: 0; transform: scale(.2) translateY(-30px); } to { opacity: 1; transform: none; } }
+@keyframes fpStar {
+  0% { opacity: 0; transform: translate(520px, -820px) rotate(-200deg) scale(.35); }
+  25% { opacity: 1; }
+  70% { transform: translate(40px, -60px) rotate(-20deg) scale(1.15); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes fpGlow { 0% { opacity: 0; transform: scale(.4); } 30% { opacity: .35; } 100% { opacity: 0; transform: scale(1.6); } }
+@keyframes fpRule { to { transform: scaleX(1); } }
+@keyframes fpLetter { from { opacity: 0; transform: translateX(calc(var(--o) * 260px)) translateY(120px); } to { opacity: 1; transform: none; } }
+@keyframes fpFade { to { opacity: 1; } }
+.fp-logo.is-live .fp-star { animation: fpTwinkle 7s ease-in-out 2s infinite; }
+.logo:hover .fp-logo .fp-star, .fp-logo.is-twinkle .fp-star { animation: fpTwinkleOnce .9s ease-in-out; }
+@keyframes fpTwinkle { 0%, 86%, 100% { transform: none; } 90% { transform: rotate(45deg) scale(1.3); } 94% { transform: rotate(90deg) scale(.85); } 97% { transform: rotate(180deg) scale(1.05); } }
+@keyframes fpTwinkleOnce { 0% { transform: none; } 40% { transform: rotate(60deg) scale(1.35); } 100% { transform: rotate(180deg) scale(1); } }
+
+/* the first-visit intro: the name writes itself, then the curtain lifts. Skippable; never blocks the page. */
+.intro { display: none; }
+.intro-on .intro { display: grid; position: fixed; inset: 0; z-index: 90; place-items: center; background: var(--band); color: var(--band-ink); --zari: var(--band-zari); transition: clip-path 1s cubic-bezier(.7, 0, .2, 1); clip-path: inset(0 0 0 0); cursor: pointer; }
+.intro .fp-logo { width: min(560px, 74vw); height: auto; }
+.intro.is-done { clip-path: inset(0 0 100% 0); pointer-events: none; }
+.intro__skip { position: absolute; right: 22px; bottom: calc(22px + env(safe-area-inset-bottom, 0px)); font: 500 .62rem/1 var(--f-ui); letter-spacing: .24em; text-transform: uppercase; color: var(--band-ink-2); }
 
 /* ---------- type ---------- */
 .kicker { font: 500 var(--fs-label)/1 var(--f-ui); letter-spacing: .3em; text-transform: uppercase; color: var(--ink-3); }
@@ -152,8 +196,8 @@ ul, ol { padding: 0; list-style: none; }
 .btn::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--b); transform: scaleX(0); transform-origin: right; transition: transform .6s var(--ease); }
 .btn:hover::before { transform: scaleX(1); transform-origin: left; }
 .btn:active { transform: translateY(1px); }
-.btn--solid { background: var(--ink); color: var(--bg); }
-.btn--solid::before { background: var(--ink-2); }
+.btn--solid { --b: var(--accent); background: var(--accent); color: var(--on-solid); }
+.btn--solid::before { background: var(--ink); }
 .btn--ghost { color: var(--ink); }
 .btn--ghost:hover { color: var(--bg); }
 .btn--light { --b: var(--band-ink); background: var(--band-ink); color: var(--band); }
@@ -188,7 +232,7 @@ ul, ol { padding: 0; list-style: none; }
 .hdr__link::after { content: ""; position: absolute; left: 0; right: 0; bottom: 4px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .5s var(--ease); }
 .hdr__link:hover::after, .hdr__link.is-on::after { transform: scaleX(1); transform-origin: left; }
 .logo { display: block; color: var(--ink); }
-.logo .mark { height: 40px; width: auto; }
+.logo .fp-logo { height: 38px; width: auto; }
 .hdr__tools { display: flex; justify-content: flex-end; align-items: center; gap: 2px; }
 .cur { position: relative; }
 .cur__btn { display: inline-flex; align-items: center; gap: 4px; height: 42px; padding: 0 10px; font: 500 var(--fs-label)/1 var(--f-ui); letter-spacing: .16em; }
@@ -231,7 +275,7 @@ ul, ol { padding: 0; list-style: none; }
 .drawer.is-open .drawer__scrim, .search.is-open .drawer__scrim { opacity: 1; }
 .drawer.is-open .drawer__panel { transform: none; }
 .drawer__head { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--line); }
-.drawer__head .mark { height: 30px; width: auto; }
+.drawer__head .fp-logo { height: 28px; width: auto; }
 .mnav { display: flex; flex-direction: column; padding: 8px 20px; }
 .mnav__link { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); font: 400 1.45rem/1.2 var(--f-display); }
 .mnav__ur { font-size: 1rem; color: var(--ink-3); }
@@ -474,7 +518,7 @@ ul, ol { padding: 0; list-style: none; }
 /* footer */
 .ftr { background: var(--bg); border-top: 1px solid var(--line); padding: clamp(60px, 7vw, 100px) 0 28px; }
 .ftr__mark { display: flex; justify-content: center; color: var(--ink); }
-.ftr__mark .mark { width: min(340px, 72vw); height: auto; }
+.ftr__mark .fp-logo { width: min(320px, 70vw); height: auto; }
 .ftr__grid { max-width: var(--max); margin: clamp(46px, 5vw, 70px) auto 0; padding: 0 var(--gut); display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; }
 .ftr__col h3 { font: 500 var(--fs-label)/1 var(--f-ui); letter-spacing: .24em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 18px; }
 .ftr__col li { padding: 5px 0; font-size: .92rem; }
@@ -642,7 +686,7 @@ body:has(.sticky-buy.is-on) .proto-tag { bottom: calc(80px + env(safe-area-inset
 .story-hero p { font-size: var(--fs-lede); color: var(--ink-2); max-width: 44ch; }
 .story-hero__fig { aspect-ratio: 2 / 3; max-width: 480px; justify-self: end; width: 100%; }
 .story-seal { display: grid; grid-template-columns: auto 1fr; gap: clamp(28px, 5vw, 80px); align-items: center; max-width: 980px; margin-inline: auto; }
-.story-seal .mark { width: clamp(200px, 26vw, 300px); height: auto; color: var(--ink); }
+.story-seal .fp-logo { width: clamp(220px, 28vw, 320px); height: auto; color: var(--ink); }
 .story-seal .copy { display: grid; gap: 16px; }
 .story-seal p { color: var(--ink-2); max-width: 52ch; }
 .timeline { position: relative; display: grid; max-width: 900px; margin-inline: auto; }
@@ -678,9 +722,7 @@ tbody tr + tr td { border-top: 1px solid var(--line); }
 .brand-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .brand-tile { display: grid; place-items: center; min-height: 340px; padding: 40px; background: var(--bg-2); color: var(--ink); }
 .brand-tile--dark { background: var(--band); color: var(--band-ink); --zari: var(--band-zari); }
-.brand-tile .mark--lockup { width: min(420px, 90%); height: auto; }
-.brand-tile .mark--stacked { width: min(320px, 80%); height: auto; }
-.brand-tile .mark--seal { width: min(260px, 70%); height: auto; }
+
 .swatch-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .swatch-row div { display: grid; gap: 10px; }
 .swatch-row i { display: block; aspect-ratio: 4 / 3; border: 1px solid var(--line); }
@@ -699,7 +741,7 @@ tbody tr + tr td { border-top: 1px solid var(--line); }
   .hdr__burger { display: inline-grid; justify-self: start; margin-left: -10px; }
   .hdr__in { grid-template-columns: auto 1fr auto; }
   .logo { justify-self: center; }
-  .logo .mark { height: 30px; }
+  .logo .fp-logo { height: 28px; }
   .peek { display: none !important; }
   .hide-sm { display: none; }
   .hero { grid-template-columns: 1fr; min-height: 0; max-height: none; }

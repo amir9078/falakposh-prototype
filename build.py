@@ -157,7 +157,7 @@ def main():
         page("product.html", f"p-{p['slug']}.html", page_id="product", p=p, cat=cats[p["category"]], related=related)
     page("bridal.html", "bridal-appointments.html", page_id="bridal-appointments")
     page("story.html", "story.html", page_id="story")
-    page("brand.html", "brand.html", page_id="brand")
+    page("identity.html", "identity.html", page_id="identity")
     for slug in ["shipping-returns", "size-guide", "faq", "visit", "credits"]:
         page(f"pages/{slug}.html", f"{slug}.html", page_id=slug)
 

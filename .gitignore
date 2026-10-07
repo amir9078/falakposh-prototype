@@ -6,3 +6,4 @@ _review/publish-files.*
 __pycache__/
 .impeccable/
 _review/*.png
+_review/*.jpg
