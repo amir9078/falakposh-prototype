@@ -300,6 +300,21 @@
   };
   if (document.readyState === 'complete') withGsap(); else addEventListener('load', withGsap);
 
+  /* ---------- home: new arrivals chips (eight at a time) ---------- */
+  const justGrid = $('[data-just-grid]');
+  if (justGrid) {
+    const cards = $$('[data-card]', justGrid);
+    $$('[data-just-chips] [data-f]').forEach(b => b.addEventListener('click', () => {
+      $$('[data-just-chips] [data-f]').forEach(x => x.classList.toggle('is-on', x === b));
+      let shown = 0;
+      cards.forEach(c => {
+        const ok = (b.dataset.f === 'all' || c.dataset.cat === b.dataset.f) && shown < 8;
+        c.classList.toggle('is-out', !ok);
+        if (ok) { c.style.setProperty('--n', shown); shown++; c.style.animation = 'none'; c.offsetWidth; c.style.animation = ''; }
+      });
+    }));
+  }
+
   /* ---------- collection page: filter, sort, density ---------- */
   const shop = $('[data-shop]');
   if (shop) {

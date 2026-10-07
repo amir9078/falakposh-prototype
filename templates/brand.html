@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% from "partials/logo.html" import lockup, stacked, seal %}
+{% block title %}Brand | Falakposh{% endblock %}
+{% block description %}The Falakposh marks, colours and type.{% endblock %}
+{% block content %}
+<section class="ph">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Brand</span></nav>
+    <h1 class="ph__title">Brand</h1>
+    <p class="ph__line">The name is set twice, in English and in Urdu. The dot of the fa is a zari star: falak means sky.</p>
+  </div>
+</section>
+
+<section class="wrap" style="display:grid;gap:16px;padding-bottom:var(--sec)">
+  <h2 class="kicker" style="margin-top:12px">Marks</h2>
+  <div class="brand-grid">
+    <div class="brand-tile">{{ lockup() }}</div>
+    <div class="brand-tile brand-tile--dark">{{ lockup() }}</div>
+    <div class="brand-tile">{{ stacked() }}</div>
+    <div class="brand-tile brand-tile--dark">{{ stacked() }}</div>
+    <div class="brand-tile">{{ seal(uid='b1') }}</div>
+    <div class="brand-tile brand-tile--dark">{{ seal(uid='b2') }}</div>
+  </div>
+
+  <h2 class="kicker" style="margin-top:48px">Colour</h2>
+  <div class="swatch-row">
+    <div><i style="background:#f5f2ed"></i><b>Muslin</b><span>Ivory ground. #F5F2ED</span></div>
+    <div><i style="background:#17130f"></i><b>Kohl</b><span>Text, buttons, the night band. #17130F</span></div>
+    <div><i style="background:#a8864c"></i><b>Zari</b><span>The star, the seal, hairlines. Never body text. #A8864C</span></div>
+    <div><i style="background:#ece7df"></i><b>Mehndi paper</b><span>Panels and image grounds. #ECE7DF</span></div>
+  </div>
+
+  <h2 class="kicker" style="margin-top:48px">Type</h2>
+  <div class="brand-grid">
+    <div class="brand-tile" style="justify-items:start;align-content:center;gap:10px">
+      <span style="font:400 3.4rem/1 var(--f-display)">Kehkashan</span>
+      <span class="fine">Bodoni Moda, for names and titles</span>
+    </div>
+    <div class="brand-tile" style="justify-items:start;align-content:center;gap:10px">
+      <span class="ur-d" lang="ur" style="font-size:3.4rem;color:var(--accent)">کہکشاں</span>
+      <span class="fine">Gulzar, for Urdu names. Noto Nastaliq Urdu for small Urdu</span>
+    </div>
+    <div class="brand-tile" style="justify-items:start;align-content:center;gap:10px">
+      <span class="label">Unstitched · Ready to wear · Formals · Bridal</span>
+      <span class="fine">Jost, for labels, navigation and body text</span>
+    </div>
+    <div class="brand-tile brand-tile--dark" style="align-content:center">
+      <span style="font:400 2.6rem/1.1 var(--f-display)">The wedding <em style="color:var(--band-zari)">edit</em></span>
+    </div>
+  </div>
+</section>
+{% endblock %}

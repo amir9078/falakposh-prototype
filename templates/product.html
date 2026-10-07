@@ -16,8 +16,8 @@
       <button type="button" data-zoom="img/p-{{ p.slug }}-detail.webp" aria-label="Zoom into the detail of {{ p.name }}">
         <img src="img/p-{{ p.slug }}-detail-sm.webp" width="560" height="840" alt="Close-up of the {{ p.fabric|lower }}" loading="lazy" decoding="async">
       </button>
-      <div class="named" style="aspect-ratio:auto; align-self:stretch; align-content:center">
-        <span lang="ur">{{ p.urdu }}</span>
+      <div class="named">
+        <span class="ur-d" lang="ur">{{ p.urdu }}</span>
         <b>Named for {{ p.meaning }}.</b>
         <span>Every Falakposh piece takes its name from the sky.</span>
       </div>
@@ -115,7 +115,7 @@
 </div>
 
 <section class="related wrap" aria-labelledby="rel-h">
-  <h2 id="rel-h" class="h2" data-split>More from {{ cat.name|lower }}.</h2>
+  <h2 id="rel-h" class="title" data-split>More {{ cat.name|lower }}</h2>
   <div class="grid grid--4">
     {% for r in related %}{{ card(r) }}{% endfor %}
   </div>

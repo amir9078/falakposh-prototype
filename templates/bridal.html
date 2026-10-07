@@ -4,43 +4,43 @@
 {% block description %}Book a bridal visit at our Dubai house, or a video call from anywhere. Made-to-measure Pakistani bridal since {{ site.founded }}.{% endblock %}
 {% block content %}
 <section class="bhero">
-  <img src="img/e-bridal-teal.webp" alt="A bride in teal and gold with a heavy embroidered dupatta" fetchpriority="high">
+  <img src="img/e-bridal-teal.webp" alt="A bride in teal and gold with an embroidered dupatta" fetchpriority="high" style="object-position: {{ 'e-bridal-teal'|fp }}">
   <div class="bhero__copy wrap">
-    <p class="eyebrow eyebrow--light">Bridal appointments</p>
-    <h1 data-split>Made for one bride. Fitted twice.</h1>
-    <p data-rise>Sit with us in Dubai, or call us on video from anywhere. We design it with you, make it to your measurements, and fit it until it's right.</p>
-    <a class="btn btn--light" href="#book" data-rise>Book a bridal visit</a>
+    <p class="kicker">Bridal appointments</p>
+    <h1>Bridal, <em>made to measure</em></h1>
+    <p>Book an appointment at our Dubai house, or a video call from anywhere. We design the outfit with you and make it to your measurements.</p>
+    <a class="btn btn--light" href="#book">Book a bridal visit</a>
   </div>
 </section>
 
 <section class="sec wrap" aria-labelledby="how-h">
-  <h2 id="how-h" class="h2" data-split style="margin-bottom:40px">Four steps, from first call to your day.</h2>
+  <h2 id="how-h" class="title" data-split style="margin-bottom:40px">How it works</h2>
   <ol class="steps" data-stagger>
-    <li><b>Talk.</b><span>Tell us the date, the events and the feeling you want. Bring photos if you have them.</span></li>
-    <li><b>Design.</b><span>We sketch it with you and pick the fabric, colour and hand work together.</span></li>
-    <li><b>Fit.</b><span>Two fittings, in Dubai or by video with a guide we send you. We fix the fit for free.</span></li>
-    <li><b>Wear it.</b><span>It's pressed, packed and delivered, or collected from us in Dubai.</span></li>
+    <li><i>i.</i><b>Consultation</b><span>Your date, your events and the look you have in mind. Bring photos if you have them.</span></li>
+    <li><i>ii.</i><b>Design</b><span>Fabric, colour and hand work, chosen with you.</span></li>
+    <li><i>iii.</i><b>Fittings</b><span>Two fittings, in Dubai or by video with a measuring guide.</span></li>
+    <li><i>iv.</i><b>Delivery</b><span>Pressed and delivered, or collected from us in Dubai.</span></li>
   </ol>
-  <p class="fine" style="margin-top:24px">Most bridals take 10 to 12 weeks. Talk to us early if your date is close. (We'll always tell you straight if we can't make it in time.)</p>
+  <p class="fine" style="margin-top:24px">Most bridals take 10 to 12 weeks. Contact us early if your date is close.</p>
 </section>
 
 <section class="sec wrap" style="padding-top:0" aria-labelledby="looks-h">
-  <h2 id="looks-h" class="h2" data-split style="margin-bottom:40px">Start from one of these, or from nothing.</h2>
+  <h2 id="looks-h" class="title" data-split style="margin-bottom:40px">Bridal looks</h2>
   <div class="grid grid--4">{% for p in by_cat['bridal'] %}{{ card(p) }}{% endfor %}</div>
 </section>
 
 <section class="sec" id="book" aria-labelledby="book-h" style="background:var(--bg-2)">
   <div class="book wrap">
-    <figure class="book__fig arch-frame"><img src="img/e-bridal-gold-md.webp" alt="Close-up of red and gold bridal embroidery" loading="lazy" decoding="async"></figure>
+    <figure class="book__fig arch-frame"><img src="img/e-bridal-gold-md.webp" alt="Close-up of red and gold bridal embroidery" loading="lazy" decoding="async" style="object-position: {{ 'e-bridal-gold'|fp }}"></figure>
     <div>
-      <h2 id="book-h" class="h2" data-split style="margin-bottom:12px">Book a bridal visit.</h2>
-      <p class="lede" style="margin-bottom:32px">Tell us a little. We'll message you on WhatsApp to set a time.</p>
+      <h2 id="book-h" class="title" data-split style="margin-bottom:12px">Book a bridal visit</h2>
+      <p class="lede" style="margin-bottom:32px">We reply on WhatsApp to confirm a time.</p>
       <form class="form" data-book novalidate>
         <div class="field"><label for="b-name">Your name</label><input id="b-name" name="name" autocomplete="name" required data-err="Tell us your name."><p class="field__err"></p></div>
         <div class="field"><label for="b-phone">WhatsApp number</label><input id="b-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+971 50 123 4567" data-err="We need a number to reach you."><p class="field__err"></p></div>
         <div class="field"><label for="b-email">Email</label><input id="b-email" name="email" type="email" autocomplete="email" required data-err="Check the email address."><p class="field__err"></p></div>
         <div class="field"><label for="b-date">Wedding date</label><input id="b-date" name="date" type="date" required data-err="Add your date, even a rough one."><p class="field__err"></p></div>
-        <div class="field full"><span class="field__label" id="b-where" style="font-size:.8rem;color:var(--ink-2)">Where would you like to meet?</span>
+        <div class="field full"><span class="field__label" id="b-where">Where would you like to meet?</span>
           <div class="seg" role="radiogroup" aria-labelledby="b-where">
             <label><input type="radio" name="where" value="dubai" checked><span>At our Dubai house</span></label>
             <label><input type="radio" name="where" value="video"><span>By video call</span></label>
@@ -48,7 +48,7 @@
         </div>
         <div class="field"><label for="b-country">Country</label><select id="b-country" name="country">{% for c in ['United Arab Emirates', 'Saudi Arabia', 'Qatar', 'Kuwait', 'Bahrain', 'Oman', 'Pakistan', 'United Kingdom', 'United States', 'Canada', 'Australia', 'Other'] %}<option>{{ c }}</option>{% endfor %}</select></div>
         <div class="field"><label for="b-budget">Budget</label><select id="b-budget" name="budget"><option>Not sure yet</option><option>Under AED 8,000</option><option>AED 8,000 to 12,000</option><option>AED 12,000 to 20,000</option><option>Above AED 20,000</option></select></div>
-        <div class="field full"><label for="b-look">Which events, and anything we should know?</label><textarea id="b-look" name="notes" placeholder="Baraat and walima. I love the teal one but in red."></textarea></div>
+        <div class="field full"><label for="b-look">Which events, and anything we should know?</label><textarea id="b-look" name="notes" placeholder="For example: baraat and walima, the teal look in red"></textarea></div>
         <div class="full"><button class="btn btn--solid" type="submit">Request my visit</button></div>
         <p class="fine full">This is a prototype: the form checks your details but doesn't send them.</p>
       </form>

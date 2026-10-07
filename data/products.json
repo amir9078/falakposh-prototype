@@ -15,7 +15,7 @@
    "tags": [
     "new"
    ],
-   "story": "Red lawn with a dense white neckline and a scalloped hem. Bright enough for Eid, light enough to breathe in.",
+   "story": "Red embroidered lawn with a white-thread neckline and a scalloped hem, and a printed chiffon dupatta.",
    "includes": [
     "Shirt: embroidered lawn, 3.0 m",
     "Dupatta: printed chiffon, 2.5 m",
@@ -34,10 +34,8 @@
    "hex": "#e9d48e",
    "fabric": "Embroidered lawn",
    "pieces": "3-piece",
-   "tags": [
-    "bestseller"
-   ],
-   "story": "Soft yellow lawn with tonal thread work down the front. Light enough for a Dubai afternoon, quiet enough for every day of Eid.",
+   "tags": [],
+   "story": "Butter-yellow lawn with tonal embroidery down the front, and an organza dupatta.",
    "includes": [
     "Shirt: embroidered lawn, 3.0 m",
     "Dupatta: organza, 2.5 m",
@@ -59,7 +57,7 @@
    "tags": [
     "new"
    ],
-   "story": "The blue of the sky just above the sea at dusk. Fine white embroidery on the front, a sheer dupatta, and a trouser with a worked hem.",
+   "story": "Powder-blue lawn with white embroidery on the front, an embroidered organza dupatta and a worked trouser hem.",
    "includes": [
     "Shirt: embroidered lawn, 3.0 m",
     "Dupatta: embroidered organza, 2.5 m",
@@ -79,7 +77,7 @@
    "fabric": "Embroidered lawn",
    "pieces": "3-piece",
    "tags": [],
-   "story": "Black lawn with white thread work and a net dupatta. One outfit that goes everywhere.",
+   "story": "Black lawn with white thread work and an embroidered net dupatta.",
    "includes": [
     "Shirt: embroidered lawn, 3.0 m",
     "Dupatta: embroidered net, 2.5 m",
@@ -99,7 +97,7 @@
    "fabric": "Jacquard lawn",
    "pieces": "3-piece",
    "tags": [],
-   "story": "Mustard jacquard with a striped organza dupatta, named for the day Lahore looks up. Made for mehndi season.",
+   "story": "Mustard jacquard lawn with a striped organza dupatta and gota-trimmed sleeves. Named for Lahore's spring kite festival.",
    "includes": [
     "Shirt: jacquard lawn, 3.0 m",
     "Dupatta: striped organza, 2.5 m",
@@ -118,10 +116,8 @@
    "hex": "#eee8e0",
    "fabric": "Embroidered cambric",
    "pieces": "2-piece",
-   "tags": [
-    "bestseller"
-   ],
-   "story": "Ivory cambric with blush thread work at the hem and cuffs. Stitched, pressed and ready the day it lands.",
+   "tags": [],
+   "story": "Ivory cambric kurta with blush embroidery at the hem and cuffs, and a straight trouser.",
    "includes": [
     "Kurta: embroidered cambric",
     "Trouser: straight cambric with embroidered hem",
@@ -142,7 +138,7 @@
    "tags": [
     "new"
    ],
-   "story": "Mint lawn with lace insets and a straight trouser. Cool to wear, and it doesn't crush in a suitcase.",
+   "story": "Mint lawn kurta with lace insets, worn with a lace-hemmed trouser.",
    "includes": [
     "Kurta: embroidered lawn with lace insets",
     "Trouser: lawn with lace hem",
@@ -161,7 +157,7 @@
    "fabric": "Raw silk",
    "pieces": "2-piece",
    "tags": [],
-   "story": "Peach raw silk with embroidered sleeves. Plain enough for a lunch, special enough for a dholki.",
+   "story": "Peach raw-silk kurta with embroidered sleeves and a wide-leg trouser.",
    "includes": [
     "Kurta: raw silk with embroidered sleeves",
     "Trouser: wide-leg raw silk",
@@ -180,7 +176,7 @@
    "fabric": "Cotton net",
    "pieces": "2-piece",
    "tags": [],
-   "story": "Pale lemon cotton net over a soft lining. It catches the light the way the name says.",
+   "story": "Lemon cotton-net kurta over a soft lining, with a straight trouser.",
    "includes": [
     "Kurta: embroidered cotton net, lined",
     "Trouser: straight cambric",
@@ -201,7 +197,7 @@
    "tags": [
     "new"
    ],
-   "story": "Gold silk, cut long and straight, with a flared trouser. One colour, no fuss.",
+   "story": "Gold silk kurta, cut long and straight, with a flared trouser.",
    "includes": [
     "Kurta: silk, lined",
     "Trouser: flared silk",
@@ -220,7 +216,7 @@
    "fabric": "Embroidered chiffon",
    "pieces": "3-piece",
    "tags": [],
-   "story": "Lilac chiffon with a hand-finished dupatta. The colour of the sky over the Creek at seven.",
+   "story": "Lilac embroidered chiffon with a matching dupatta and a straight silk trouser.",
    "includes": [
     "Kurta: embroidered chiffon, lined",
     "Dupatta: embroidered chiffon",
@@ -240,7 +236,7 @@
    "fabric": "Printed cotton",
    "pieces": "2-piece",
    "tags": [],
-   "story": "A printed cotton co-ord for days that aren't occasions. Machine washable (yes, really).",
+   "story": "Printed cotton co-ord for every day. Machine washable.",
    "includes": [
     "Shirt: printed cotton",
     "Trouser: printed cotton, elastic waist",
@@ -262,7 +258,7 @@
     "new",
     "signature"
    ],
-   "story": "Midnight chiffon with a band of silver and pearl sequins that runs across the body like the Milky Way. Every sequin is sewn by hand.",
+   "story": "Midnight chiffon with a band of silver and pearl sequins across the body, and an organza dupatta with a scalloped silver border.",
    "includes": [
     "Kurta: hand-sequinned chiffon, lined",
     "Dupatta: organza with scalloped silver border",
@@ -284,7 +280,7 @@
    "tags": [
     "signature"
    ],
-   "story": "The piece that gave the house its name. Lapis chiffon scattered with pearl sequins, and an ivory organza dupatta.",
+   "story": "Lapis chiffon scattered with pearl sequins, with an ivory organza dupatta.",
    "includes": [
     "Kurta: sequinned chiffon, lined",
     "Dupatta: ivory organza with embroidered border",
@@ -304,7 +300,7 @@
    "fabric": "Tissue silk",
    "pieces": "2-piece",
    "tags": [],
-   "story": "Silver tissue with a high-low hem. It looks pale by day and lit from inside at night.",
+   "story": "Silver tissue kurta with a high-low hem, worn with a straight tissue trouser.",
    "includes": [
     "Kurta: tissue silk, lined",
     "Trouser: straight tissue silk",
@@ -322,10 +318,8 @@
    "hex": "#14110c",
    "fabric": "Velvet",
    "pieces": "3-piece",
-   "tags": [
-    "bestseller"
-   ],
-   "story": "Black velvet with gold tilla work. Made for winter weddings.",
+   "tags": [],
+   "story": "Black velvet with gold tilla embroidery and a tissue dupatta. For winter weddings.",
    "includes": [
     "Kurta: velvet with tilla embroidery",
     "Dupatta: tissue with gold border",
@@ -345,7 +339,7 @@
    "fabric": "Chiffon",
    "pieces": "3-piece",
    "tags": [],
-   "story": "Deep plum chiffon with a zari-trimmed dupatta. Cut long and simple so the work stays the point.",
+   "story": "Plum chiffon, cut long, with a zari-trimmed dupatta.",
    "includes": [
     "Kurta: chiffon, lined",
     "Dupatta: chiffon with zari border",
@@ -367,7 +361,7 @@
    "tags": [
     "new"
    ],
-   "story": "Black organza with a silver-worked dupatta that does most of the talking.",
+   "story": "Black organza with a silver-embroidered dupatta.",
    "includes": [
     "Kurta: embroidered organza, lined",
     "Dupatta: organza with silver embroidery",
@@ -390,7 +384,7 @@
    "tags": [
     "made-to-order"
    ],
-   "story": "Red raw silk with zardozi, dabka and kora worked by hand. Made to your measurements over 10 to 12 weeks.",
+   "story": "Red raw silk with hand zardozi, dabka and kora. Made to your measurements over 10 to 12 weeks.",
    "includes": [
     "Lehnga, choli and dupatta",
     "Hand zardozi, dabka and kora",
@@ -413,7 +407,7 @@
    "tags": [
     "made-to-order"
    ],
-   "story": "Deep red with silver work for a bride who wants the classic colour in a cooler light.",
+   "story": "Deep red raw silk and net with silver kora and dabka work.",
    "includes": [
     "Lehnga, choli and dupatta",
     "Hand silver kora and dabka",
@@ -436,7 +430,7 @@
    "tags": [
     "made-to-order"
    ],
-   "story": "Teal and antique gold for a nikkah or a walima. Fully hand-worked, made to measure.",
+   "story": "Teal raw silk with antique-gold zardozi and kora, for a nikkah or walima.",
    "includes": [
     "Lehnga, choli and dupatta",
     "Hand zardozi and kora",
@@ -459,7 +453,7 @@
    "tags": [
     "made-to-order"
    ],
-   "story": "Soft blush net with a long organza dupatta. For a mehndi, a nikkah, or a bride who isn't wearing red.",
+   "story": "Blush net with pearl and dabka work and a long organza dupatta.",
    "includes": [
     "Lehnga, choli and dupatta",
     "Hand pearl and dabka work",

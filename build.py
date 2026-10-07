@@ -17,7 +17,7 @@ from PIL import Image, ImageOps
 ROOT = Path(__file__).parent
 SRC_IMG = ROOT.parent / "_img_src" / "full"
 DIST = ROOT / "dist"
-ICON_CACHE = ROOT / "icons"
+ICON_CACHE = ROOT / "icons-light"
 
 ICONS = [
     "magnifying-glass", "heart", "handbag", "list", "x", "sun", "moon", "plus", "minus",
@@ -37,7 +37,7 @@ def icon_svgs():
             for attempt in range(4):
                 try:
                     host = ["cdn.jsdelivr.net/npm", "unpkg.com"][attempt % 2]
-                    url = f"https://{host}/@phosphor-icons/core@2/assets/regular/{name}.svg"
+                    url = f"https://{host}/@phosphor-icons/core@2/assets/light/{name}-light.svg"
                     f.write_bytes(urllib.request.urlopen(url, timeout=30).read())
                     break
                 except OSError:
@@ -50,50 +50,74 @@ def icon_svgs():
     return out
 
 
-def fit(im, w, ratio=None):
-    """Resize to width w. With a ratio (w/h), centre-crop to it first."""
+def fit(im, w, ratio=None, centering=(0.5, 0.35)):
+    """Resize to width w. With a ratio (w/h), crop to it first, keeping the focus point."""
     im = ImageOps.exif_transpose(im).convert("RGB")
     if ratio:
-        im = ImageOps.fit(im, (w, round(w / ratio)), Image.LANCZOS, centering=(0.5, 0.35))
+        im = ImageOps.fit(im, (w, round(w / ratio)), Image.LANCZOS, centering=centering)
     elif im.width > w:
         im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
     return im
 
 
-def save(im, name, q=78):
+def _grade_luts():
+    """The house grade: a touch less saturation, a gentle S-curve, lifted blacks and a faint warm cast,
+    so photos from different shoots sit together like one campaign."""
+    import math
+    def curve(i, mult):
+        x = i / 255
+        y = x - 0.022 * math.sin(2 * math.pi * x)      # soft S
+        y = 0.028 + 0.955 * y                           # lift the blacks, hold the whites
+        return max(0, min(255, round(y * 255 * mult)))
+    return [curve(i, 1.012) for i in range(256)] + [curve(i, 1.0) for i in range(256)] + [curve(i, 0.982) for i in range(256)]
+
+
+GRADE = _grade_luts()
+
+
+def grade(im):
+    from PIL import ImageEnhance
+    return ImageEnhance.Color(im).enhance(0.9).point(GRADE)
+
+
+def save(im, name, q=80):
     path = DIST / "img" / f"{name}.webp"
     im.save(path, "WEBP", quality=q, method=6)
     return im.size
 
 
-def build_images(products):
+def build_images(frames):
     (DIST / "img").mkdir(parents=True, exist_ok=True)
-    for f in sorted(SRC_IMG.glob("*.jpg")):
-        stem = f.stem
-        im = Image.open(f)
+    for old in (DIST / "img").glob("*.webp"):
+        old.unlink()
+    for stem, spec in frames.items():
+        if stem.startswith("_"):
+            continue
+        im = grade(ImageOps.exif_transpose(Image.open(SRC_IMG / f"{stem}.jpg")).convert("RGB"))
+        fx, fy = spec["focus"]
         if stem.startswith("p-"):
-            main = fit(im, 1000, 2 / 3)
+            main = fit(im, 1000, 2 / 3, (fx, fy))
             save(main, stem)
             save(fit(main, 560), f"{stem}-sm")
-            # Detail view for hover and the gallery: a closer crop on the bodice.
+            # The close-up for hover and the gallery, framed per photo in images.json.
+            cx, cy, cw = spec["detail"]
             w, h = main.size
-            cw = int(w * 0.62)
-            ch = int(cw * 1.5)
-            left = (w - cw) // 2
-            top = int(h * 0.13)
-            top = min(top, h - ch)
-            detail = main.crop((left, top, left + cw, top + ch)).resize((1000, 1500), Image.LANCZOS)
+            pw = int(w * cw); ph = int(pw * 1.5)
+            left = min(max(0, int(w * cx - pw / 2)), w - pw)
+            top = min(max(0, int(h * cy - ph / 2)), h - ph)
+            detail = main.crop((left, top, left + pw, top + ph)).resize((1000, 1500), Image.LANCZOS)
             save(detail, f"{stem}-detail")
             save(fit(detail, 560), f"{stem}-detail-sm")
         else:
             big = fit(im, 1800)
-            save(big, stem, 76)
-            save(fit(big, 900), f"{stem}-md", 76)
+            save(big, stem, 78)
+            save(fit(big, 900), f"{stem}-md", 78)
 
 
 def main():
     site = json.loads((ROOT / "data" / "site.json").read_text(encoding="utf-8"))
     catalogue = json.loads((ROOT / "data" / "products.json").read_text(encoding="utf-8"))
+    frames = json.loads((ROOT / "data" / "images.json").read_text(encoding="utf-8"))
     products = catalogue["products"]
     by_cat = {}
     for p in products:
@@ -107,7 +131,7 @@ def main():
     DIST.mkdir(exist_ok=True)
     img_dir = DIST / "img"
     if "--images" in sys.argv or not img_dir.exists() or not any(img_dir.iterdir()):
-        build_images(products)
+        build_images(frames)
     shutil.copytree(ROOT / "static", DIST / "assets", dirs_exist_ok=True)
 
     env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=select_autoescape(["html"]))
@@ -115,6 +139,8 @@ def main():
                        products=products, by_cat=by_cat, year=2026,
                        years=2026 - site["founded"])
     env.filters["aed"] = lambda v: f"{v:,.0f}"
+    # object-position for a photo, from its focus point
+    env.filters["fp"] = lambda stem: "{:.0f}% {:.0f}%".format(*(100 * v for v in frames.get(stem, {"focus": [0.5, 0.35]})["focus"]))
 
     def page(template, out, **ctx):
         html = env.get_template(template).render(**ctx)
@@ -131,6 +157,7 @@ def main():
         page("product.html", f"p-{p['slug']}.html", page_id="product", p=p, cat=cats[p["category"]], related=related)
     page("bridal.html", "bridal-appointments.html", page_id="bridal-appointments")
     page("story.html", "story.html", page_id="story")
+    page("brand.html", "brand.html", page_id="brand")
     for slug in ["shipping-returns", "size-guide", "faq", "visit", "credits"]:
         page(f"pages/{slug}.html", f"{slug}.html", page_id=slug)
 

@@ -1,0 +1,44 @@
+{#- The Falakposh marks. The Urdu is set in Gulzar with the dotless fa (U+06A1);
+    a zari star takes the place of the dot, measured from the font:
+    1.3667em right of the word's centre and 0.75em above the baseline. In Shopify these become snippets. -#}
+
+{%- macro star(cx, cy, r) -%}
+<path class="mark-star" d="M{{ cx }} {{ (cy - r * 1.7)|round(2) }} L{{ (cx + r * 0.32)|round(2) }} {{ (cy - r * 0.32)|round(2) }} L{{ (cx + r * 1.15)|round(2) }} {{ cy }} L{{ (cx + r * 0.32)|round(2) }} {{ (cy + r * 0.32)|round(2) }} L{{ cx }} {{ (cy + r * 1.7)|round(2) }} L{{ (cx - r * 0.32)|round(2) }} {{ (cy + r * 0.32)|round(2) }} L{{ (cx - r * 1.15)|round(2) }} {{ cy }} L{{ (cx - r * 0.32)|round(2) }} {{ (cy - r * 0.32)|round(2) }} Z"/>
+{%- endmacro -%}
+
+{%- macro urdu(x, y, fs) -%}
+<text x="{{ x }}" y="{{ y }}" text-anchor="middle" font-family="Gulzar, 'Noto Nastaliq Urdu', serif" font-size="{{ fs }}" fill="currentColor" direction="rtl" lang="ur">ڡلک پوش</text>
+{{ star((x + 1.3667 * fs)|round(2), (y - 0.75 * fs)|round(2), (0.11 * fs)|round(2)) }}
+{%- endmacro -%}
+
+{#- Header lockup: FALAKPOSH, a hairline, then the Urdu. -#}
+{%- macro lockup(cls='') -%}
+<svg class="mark mark--lockup {{ cls }}" viewBox="0 0 430 64" role="img" aria-label="Falakposh">
+  <text x="140" y="40" text-anchor="middle" font-family="'Bodoni Moda', Didot, serif" font-size="20" letter-spacing="7.4" fill="currentColor">FALAKPOSH</text>
+  <line x1="289" y1="14" x2="289" y2="52" stroke="currentColor" stroke-opacity=".32" stroke-width="1"/>
+  {{ urdu(357, 46, 31) }}
+</svg>
+{%- endmacro -%}
+
+{#- Stacked: the Urdu leads, the English sits under it. -#}
+{%- macro stacked(cls='', sub=true) -%}
+<svg class="mark mark--stacked {{ cls }}" viewBox="0 0 420 {{ 262 if sub else 228 }}" role="img" aria-label="Falakposh">
+  {{ urdu(210, 128, 104) }}
+  <text x="210" y="214" text-anchor="middle" font-family="'Bodoni Moda', Didot, serif" font-size="22" letter-spacing="9" fill="currentColor">FALAKPOSH</text>
+  {%- if sub %}
+  <text x="210" y="250" text-anchor="middle" font-family="Jost, sans-serif" font-size="10.5" letter-spacing="5" fill="currentColor" fill-opacity=".7">DUBAI · SINCE {{ site.founded }}</text>
+  {%- endif %}
+</svg>
+{%- endmacro -%}
+
+{#- The seal: a Mughal mohr. Ring of English around the Urdu name. -#}
+{%- macro seal(cls='', uid='s') -%}
+<svg class="mark mark--seal {{ cls }}" viewBox="0 0 300 300" role="img" aria-label="Falakposh seal">
+  <defs><path id="ring-{{ uid }}" d="M150,150 m-111,0 a111,111 0 1,1 222,0 a111,111 0 1,1 -222,0"/></defs>
+  <circle class="mark-line" cx="150" cy="150" r="141" fill="none" stroke-width="1.1"/>
+  <circle class="mark-line" cx="150" cy="150" r="135" fill="none" stroke-width=".55"/>
+  <circle class="mark-line" cx="150" cy="150" r="91" fill="none" stroke-width=".55"/>
+  <text font-family="'Bodoni Moda', Didot, serif" font-size="14.5" fill="currentColor"><textPath href="#ring-{{ uid }}" textLength="690" lengthAdjust="spacing">FALAKPOSH ✦ DUBAI ✦ SINCE {{ site.founded }} ✦ HOUSE OF PAKISTANI DRESS ✦</textPath></text>
+  {{ urdu(150, 166, 47) }}
+</svg>
+{%- endmacro -%}

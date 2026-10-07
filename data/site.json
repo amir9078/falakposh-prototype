@@ -89,7 +89,7 @@
       "slug": "unstitched",
       "name": "Unstitched",
       "urdu": "ان سلا",
-      "line": "Three-piece fabric sets. Stitch them your way, or let us do it.",
+      "line": "Three-piece fabric sets in lawn, jacquard and winter weaves. Wear them as they come, or have them stitched.",
       "hour": "Subh",
       "hour_urdu": "صبح",
       "hero": "p-dhoop"
@@ -98,7 +98,7 @@
       "slug": "ready-to-wear",
       "name": "Ready to wear",
       "urdu": "سلا ہوا",
-      "line": "Stitched, pressed and ready the day it lands.",
+      "line": "Stitched and pressed, in sizes XS to XL.",
       "hour": "Dopahar",
       "hour_urdu": "دوپہر",
       "hero": "p-sahar"
@@ -107,19 +107,19 @@
       "slug": "formals",
       "name": "Formals",
       "urdu": "محفل",
-      "line": "Hand-worked pieces for weddings, Eid nights and every dholki in between.",
+      "line": "Chiffon, organza, tissue and velvet for weddings and Eid.",
       "hour": "Shaam",
       "hour_urdu": "شام",
-      "hero": "p-falak"
+      "hero": "p-kehkashan"
     },
     {
       "slug": "bridal",
       "name": "Bridal",
       "urdu": "دلہن",
-      "line": "Made for one bride, to her measurements, with fittings in Dubai or by video.",
+      "line": "Made to measure, with fittings in Dubai or by video.",
       "hour": "Raat",
       "hour_urdu": "رات",
-      "hero": "e-bridal-teal"
+      "hero": "p-suraiya"
     }
   ],
   "credits": [

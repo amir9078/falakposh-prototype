@@ -1,10 +1,10 @@
 {# Product card. In Shopify this becomes snippets/card-product.liquid. #}
-{% macro card(p, big=false, eager=false) -%}
-<article class="card{% if big %} card--big{% endif %}" data-card data-slug="{{ p.slug }}" data-cat="{{ p.category }}" data-fabric="{{ p.fabric }}" data-colour="{{ p.colour }}" data-hex="{{ p.hex }}" data-price-aed="{{ p.price }}" data-pieces="{{ p.pieces }}" data-tags="{{ p.tags|join(' ') }}">
+{% macro card(p, big=false, eager=false, out=false) -%}
+<article class="card{% if big %} card--big{% endif %}{% if out %} is-out{% endif %}" data-card data-slug="{{ p.slug }}" data-cat="{{ p.category }}" data-fabric="{{ p.fabric }}" data-colour="{{ p.colour }}" data-hex="{{ p.hex }}" data-price-aed="{{ p.price }}" data-pieces="{{ p.pieces }}" data-tags="{{ p.tags|join(' ') }}">
   <a class="card__media" href="p-{{ p.slug }}.html" aria-label="{{ p.name }}, {{ p.colour }}">
-    <img class="card__img" src="img/p-{{ p.slug }}-sm.webp" srcset="img/p-{{ p.slug }}-sm.webp 560w, img/p-{{ p.slug }}.webp 1000w" sizes="(min-width: 1024px) 25vw, 50vw" width="560" height="840" alt="{{ p.name }} in {{ p.colour|lower }}" {% if not eager %}loading="lazy" {% endif %}decoding="async">
+    <img class="card__img" src="img/p-{{ p.slug }}-sm.webp" srcset="img/p-{{ p.slug }}-sm.webp 560w, img/p-{{ p.slug }}.webp 1000w" sizes="(min-width: 1024px) 25vw, 50vw" width="560" height="840" alt="{{ p.name }} in {{ p.colour|lower }}" {% if not eager %}loading="lazy" {% endif %}decoding="async" style="object-position: {{ ('p-' ~ p.slug)|fp }}">
     <img class="card__img card__img--alt" src="img/p-{{ p.slug }}-detail-sm.webp" width="560" height="840" alt="" loading="lazy" decoding="async">
-    {% if 'new' in p.tags %}<span class="card__flag">New</span>{% elif 'made-to-order' in p.tags %}<span class="card__flag">Made to order</span>{% elif 'bestseller' in p.tags %}<span class="card__flag">Most loved</span>{% endif %}
+    {% if 'new' in p.tags %}<span class="card__flag">New</span>{% elif 'made-to-order' in p.tags %}<span class="card__flag">Made to order</span>{% endif %}
   </a>
   <button class="card__save" type="button" data-wish="{{ p.slug }}" aria-pressed="false" aria-label="Save {{ p.name }}">{{ icons['heart']|safe }}</button>
   <div class="card__body">

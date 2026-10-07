@@ -1,168 +1,80 @@
 {% extends "base.html" %}
 {% from "partials/card.html" import card %}
+{% block title %}Falakposh | Pakistani couture, Dubai{% endblock %}
 {% block body_class %}home{% endblock %}
-{% block head %}<link rel="preload" as="image" href="img/p-kehkashan.webp">{% endblock %}
+{% block head %}<link rel="preload" as="image" href="img/p-falak.webp">{% endblock %}
 {% block content %}
 
-{# HERO: a field of hand-sewn sequins forms the Milky Way (Kehkashan). Your pointer is the light. #}
-<section class="hero" data-hero>
-  <canvas class="hero__sky" data-sequins aria-hidden="true"></canvas>
-  <div class="hero__in">
-    <div class="hero__copy">
-      <p class="eyebrow" data-rise>Dubai, since {{ site.founded }}</p>
-      <h1 class="hero__title">Dressed in the&nbsp;sky.</h1>
-      <p class="hero__sub" data-rise style="--d:.5s">Pakistani couture from our Dubai house since {{ site.founded }}. Now it ships to your door, wherever you are.</p>
-      <div class="hero__ctas" data-rise style="--d:.65s">
-        <a class="btn btn--solid" href="formals.html">Shop the wedding edit</a>
-        <a class="btn btn--ghost" href="bridal-appointments.html">Book a bridal visit</a>
-      </div>
+{# HERO: the current campaign. One photograph, one name. #}
+<section class="hero" aria-labelledby="hero-h">
+  <div class="hero__media">
+    <img src="img/p-falak.webp" width="1000" height="1500" alt="Falak, a lapis chiffon suit with an ivory organza dupatta, in an old courtyard" fetchpriority="high" style="object-position: {{ 'p-falak'|fp }}">
+  </div>
+  <div class="hero__copy">
+    <p class="kicker" style="--d:.1s">Winter Festive 2026</p>
+    <h1 id="hero-h" class="hero__title">Kehkashan <em>The wedding edit</em></h1>
+    <p class="hero__ur" lang="ur" style="--d:.45s">کہکشاں</p>
+    <p class="hero__sub" style="--d:.55s">Midnight, silver, plum and lapis. Six formals for this season's weddings.</p>
+    <div class="hero__ctas" style="--d:.65s">
+      <a class="btn btn--solid" href="formals.html">Shop the edit</a>
+      <a class="btn btn--ghost" href="bridal-appointments.html">Book a bridal visit</a>
     </div>
-    <figure class="hero__fig" data-rise style="--d:.2s">
-      <div class="hero__frame">
-        <div class="arch-frame hero__arch" data-parallax>
-          <img src="img/p-kehkashan.webp" width="1000" height="1500" alt="Kehkashan: a midnight chiffon suit with a band of silver sequins across the body" fetchpriority="high">
+    <div class="hero__meta" style="--d:.8s">
+      <div><b>Since {{ site.founded }}</b><span>Boutique in Dubai</span></div>
+      <div><b>Stitched for you</b><span>Standard or measured</span></div>
+      <div><b>Worldwide</b><span>Ships from Dubai</span></div>
+    </div>
+  </div>
+</section>
+
+{# THE COLLECTIONS #}
+<section class="sec" aria-labelledby="cats-h">
+  <div class="wrap">
+    <div class="sec__head"><h2 id="cats-h" class="title" data-split>The collections</h2></div>
+    <div class="cats" data-stagger>
+      {% for c in categories %}
+      <a class="cat" href="{{ c.slug }}.html">
+        <span class="cat__img"><img src="img/{{ c.hero }}{% if c.hero.startswith('p-') %}-sm{% else %}-md{% endif %}.webp" alt="" loading="lazy" decoding="async" style="object-position: {{ c.hero|fp }}"></span>
+        <span class="cat__row"><span class="cat__name">{{ c.name }}</span><span class="cat__ur" lang="ur">{{ c.urdu }}</span></span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# NIGHT: the one dark band. Gold sequins sewn into the Milky Way, crossing behind the title. #}
+<section class="night" aria-labelledby="night-h" data-hero>
+  <canvas class="night__sky" data-sequins="band" data-tone="night" aria-hidden="true"></canvas>
+  <div class="night__head wrap" data-sky-focus>
+    <div class="night__text" data-sky-clear>
+      <p class="kicker">Kehkashan</p>
+      <p class="night__ur" lang="ur" aria-hidden="true">کہکشاں</p>
+      <h2 id="night-h" class="title" data-split>The wedding edit</h2>
+      <p class="night__p" data-rise>Kehkashan is Urdu for the Milky Way. Sequins run across midnight chiffon, silver tissue and black organza.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="rail" data-rail>
+      <div class="rail__track" data-rail-track>
+        {% for p in by_cat['formals'] %}{{ card(p) }}{% endfor %}
+      </div>
+      <div class="rail__nav">
+        <a class="link" href="formals.html">Shop formals {{ icons['arrow-right']|safe }}</a>
+        <div class="rail__btns">
+          <button class="icon-btn icon-btn--line" type="button" data-rail-prev aria-label="Previous">{{ icons['arrow-left']|safe }}</button>
+          <button class="icon-btn icon-btn--line" type="button" data-rail-next aria-label="Next">{{ icons['arrow-right']|safe }}</button>
         </div>
       </div>
-      <figcaption class="hero__cap"><a href="p-kehkashan.html"><span>Kehkashan</span> <em>the Milky Way</em></a></figcaption>
-    </figure>
-  </div>
-</section>
-
-{# THE WEDDING EDIT: horizontal rail of formals. #}
-<section class="sec edit" aria-labelledby="edit-h">
-  <div class="sec__head wrap">
-    <h2 id="edit-h" class="h2" data-split>Kehkashan is our wedding edit for winter 2026.</h2>
-    <p class="lede" data-rise>Midnight, silver, plum and lapis. Six pieces for the nights you'll remember.</p>
-  </div>
-  <div class="rail" data-rail>
-    <div class="rail__track" data-rail-track>
-      {% for p in by_cat['formals'] %}{{ card(p, big=loop.first) }}{% endfor %}
-    </div>
-    <div class="rail__nav wrap">
-      <a class="link-arrow" href="formals.html">See all formals {{ icons['arrow-right']|safe }}</a>
-      <div class="rail__btns">
-        <button class="icon-btn icon-btn--line" type="button" data-rail-prev aria-label="Previous">{{ icons['arrow-left']|safe }}</button>
-        <button class="icon-btn icon-btn--line" type="button" data-rail-next aria-label="Next">{{ icons['arrow-right']|safe }}</button>
-      </div>
     </div>
   </div>
 </section>
 
-{# FOUR WAYS: arches that open on hover. #}
-<section class="sec arches" aria-labelledby="arches-h">
+{# NEW ARRIVALS #}
+<section class="sec" aria-labelledby="new-h">
   <div class="wrap">
-    <h2 id="arches-h" class="h2 h2--center" data-split>Four ways to wear the sky.</h2>
-  </div>
-  <div class="arches__row wrap" data-arches>
-    {% for c in categories %}
-    <a class="arch{% if loop.index == 3 %} is-open{% endif %}" href="{{ c.slug }}.html" data-arch>
-      <span class="arch__img arch-frame"><img src="img/{{ c.hero }}{% if c.hero.startswith('p-') %}{% else %}-md{% endif %}.webp" alt="" loading="lazy" decoding="async"></span>
-      <span class="arch__hour"><span lang="ur">{{ c.hour_urdu }}</span> {{ c.hour }}</span>
-      <span class="arch__name">{{ c.name }}</span>
-      <span class="arch__line">{{ c.line }}</span>
-      <span class="arch__count">{{ by_cat.get(c.slug, [])|length }} pieces {{ icons['arrow-up-right']|safe }}</span>
-    </a>
-    {% endfor %}
-  </div>
-</section>
-
-{# HERITAGE: the year, sewn in sequins. #}
-<section class="sec heritage" aria-labelledby="heritage-h">
-  <div class="heritage__in wrap">
-    <div class="heritage__year" aria-hidden="true"><canvas data-sequins="text" data-text="{{ site.founded }}"></canvas></div>
-    <div class="heritage__copy">
-      <h2 id="heritage-h" class="h2" data-split>We've dressed Dubai since {{ site.founded }}.</h2>
-      <div class="stack" data-stagger>
-        <p>We opened a boutique in Dubai.</p>
-        <p>We saw clients in private, by appointment.</p>
-        <p>We took each collection to exhibitions and pop-ups.</p>
-        <p>Now the whole house ships to you, wherever you're reading this.</p>
-      </div>
-      <p class="turn" data-rise>Same house. A much bigger door.</p>
-      <a class="link-arrow" href="story.html" data-rise>Read our story {{ icons['arrow-right']|safe }}</a>
-    </div>
-    <figure class="heritage__fig arch-frame" data-parallax>
-      <img src="img/e-hands-sewing-md.webp" alt="Hands sewing white fabric with a needle and thread" loading="lazy" decoding="async">
-    </figure>
-  </div>
-</section>
-
-{# STITCHING: drag the needle from fabric to finished suit. #}
-<section class="sec stitch" aria-labelledby="stitch-h">
-  <div class="stitch__in wrap">
-    <div class="compare" data-compare style="--pos: 50%">
-      <img class="compare__a" src="img/e-silk-ivory-md.webp" alt="Unstitched ivory fabric in soft folds" loading="lazy" decoding="async">
-      <img class="compare__b" src="img/p-sahar.webp" alt="The same colour stitched into a finished suit" loading="lazy" decoding="async">
-      <span class="compare__tag compare__tag--a">Unstitched</span>
-      <span class="compare__tag compare__tag--b">Stitched for you</span>
-      <span class="compare__seam" aria-hidden="true"></span>
-      <span class="compare__needle" aria-hidden="true">{{ icons['scissors']|safe }}</span>
-      <label class="sr" for="compare-range">Drag to compare unstitched and stitched</label>
-      <input id="compare-range" class="compare__range" type="range" min="0" max="100" value="50" data-compare-range>
-    </div>
-    <div class="stitch__copy">
-      <h2 id="stitch-h" class="h2" data-split>Buy it unstitched. We'll stitch it for you.</h2>
-      <div class="stack" data-stagger>
-        <p>Choose a size, or send us your measurements.</p>
-        <p>We stitch it in {{ site.stitching.days }} days.</p>
-        <p>It arrives pressed, so it's ready to wear.</p>
-      </div>
-      <p class="fine" data-rise>Stitching from <span data-price="{{ site.stitching.standard }}">AED {{ site.stitching.standard }}</span>. Pick it on any unstitched piece.</p>
-      <a class="btn btn--ghost" href="unstitched.html" data-rise>Shop unstitched</a>
-    </div>
-  </div>
-</section>
-
-{# THE THREAD: a running stitch draws itself from Pakistan to your door as you scroll. #}
-<section class="sec thread" aria-labelledby="thread-h" data-thread>
-  <div class="wrap">
-    <h2 id="thread-h" class="h2 h2--center" data-split>One thread runs from Pakistan to your door.</h2>
-  </div>
-  <div class="thread__stage wrap">
-    <svg class="thread__svg" viewBox="0 0 1200 420" preserveAspectRatio="none" aria-hidden="true">
-      <defs>
-        <mask id="thread-mask"><path class="thread__reveal" d="M40 330 C 220 330, 260 90, 420 110 S 640 360, 800 300 S 1060 80, 1160 120" fill="none" stroke="#fff" stroke-width="14" pathLength="1"/></mask>
-      </defs>
-      <path class="thread__ghost" d="M40 330 C 220 330, 260 90, 420 110 S 640 360, 800 300 S 1060 80, 1160 120" fill="none" pathLength="1"/>
-      <path class="thread__stitch" d="M40 330 C 220 330, 260 90, 420 110 S 640 360, 800 300 S 1060 80, 1160 120" fill="none" mask="url(#thread-mask)"/>
-    </svg>
-    <ol class="thread__stops">
-      <li class="stop" style="--x: 6%; --y: 0%">
-        <span class="stop__img arch-frame"><img src="img/e-hands-flowers-md.webp" alt="Hands holding fabric embroidered with flowers" loading="lazy" decoding="async"></span>
-        <h3>Made by hand in Pakistan.</h3>
-        <p>Karigars cut, print and embroider each design.</p>
-      </li>
-      <li class="stop" style="--x: 40%; --y: 18%">
-        <span class="stop__img arch-frame"><img src="img/e-sequins-md.webp" alt="Close-up of sequins catching the light" loading="lazy" decoding="async"></span>
-        <h3>Checked in Dubai.</h3>
-        <p>We check, press and pack every piece at our house.</p>
-      </li>
-      <li class="stop" style="--x: 74%; --y: 4%">
-        <span class="stop__img arch-frame"><img src="img/e-dupatta-wind-md.webp" alt="A woman throwing a blue dupatta into the wind" loading="lazy" decoding="async"></span>
-        <h3>At your door.</h3>
-        <p>Tracked to the Gulf, the UK, Europe, North America and Australia.</p>
-      </li>
-    </ol>
-  </div>
-</section>
-
-{# BRIDAL: full-bleed, the one dark moment on the page. #}
-<section class="bridal-band" aria-labelledby="bridal-h">
-  <div class="bridal-band__media" data-parallax><img src="img/e-bridal-teal.webp" alt="A bride in teal and gold with a heavy embroidered dupatta" loading="lazy" decoding="async"></div>
-  <div class="bridal-band__copy wrap">
-    <p class="eyebrow eyebrow--light">Bridal</p>
-    <h2 id="bridal-h" class="h2" data-split>Your bridal is made for you, not taken off a rail.</h2>
-    <p data-rise>Sit with us in Dubai or on a video call. We design it together, then fit it twice.</p>
-    <a class="btn btn--light" href="bridal-appointments.html" data-rise>Book a bridal visit</a>
-  </div>
-</section>
-
-{# JUST IN: grid with quick filters. #}
-<section class="sec just" aria-labelledby="just-h">
-  <div class="wrap">
-    <div class="just__head">
-      <h2 id="just-h" class="h2" data-split>Just in for the winter season.</h2>
-      <div class="chips" role="group" aria-label="Filter new pieces" data-just-chips>
+    <div class="sec__head">
+      <h2 id="new-h" class="title" data-split>New arrivals</h2>
+      <div class="chips" role="group" aria-label="Filter new arrivals" data-just-chips>
         <button type="button" class="chip is-on" data-f="all">All</button>
         <button type="button" class="chip" data-f="unstitched">Unstitched</button>
         <button type="button" class="chip" data-f="ready-to-wear">Ready to wear</button>
@@ -170,33 +82,88 @@
       </div>
     </div>
     <div class="grid grid--4" data-just-grid>
-      {% for p in products if p.category != 'bridal' %}{% if loop.index <= 12 %}{{ card(p) }}{% endif %}{% endfor %}
+      {% for p in products if p.category != 'bridal' %}{{ card(p, out=loop.index > 8) }}{% endfor %}
     </div>
-    <div class="center"><a class="btn btn--ghost" href="shop.html">See every piece</a></div>
+    <div class="center"><a class="btn btn--ghost" href="shop.html">View all pieces</a></div>
   </div>
 </section>
 
-{# NAMES: the one marquee on the page. Every piece is named for the sky. #}
-<section class="names" aria-labelledby="names-h">
-  <h2 id="names-h" class="names__h">We name every piece after the sky.</h2>
-  <div class="marquee" data-marquee>
-    <div class="marquee__track">
-      {% for p in products %}<a class="marquee__item" href="p-{{ p.slug }}.html"><span class="marquee__ur" lang="ur">{{ p.urdu }}</span><b>{{ p.name }}</b><em>{{ p.meaning }}</em></a>{% endfor %}
+{# THE HOUSE: the year, embroidered in sequins #}
+<section class="sec house" aria-labelledby="house-h">
+  <div class="house__in wrap">
+    <div class="house__year" aria-hidden="true"><canvas data-sequins="text" data-text="{{ site.founded }}"></canvas></div>
+    <div class="house__copy">
+      <h2 id="house-h" class="title" data-split>A Dubai house for Pakistani dress</h2>
+      <p data-rise>We began with a boutique in Dubai, then private appointments and exhibitions. Since {{ site.founded }}, the same house has dressed women for Eid, weddings and every day.</p>
+      <a class="link" href="story.html" data-rise>Our story {{ icons['arrow-right']|safe }}</a>
+    </div>
+    <figure class="house__fig arch-frame" data-parallax><img src="img/e-hands-sewing-md.webp" alt="Hands sewing white fabric with a needle and thread" loading="lazy" decoding="async" style="object-position: {{ 'e-hands-sewing'|fp }}"></figure>
+  </div>
+</section>
+
+{# STITCHING #}
+<section class="sec" aria-labelledby="stitch-h">
+  <div class="stitch__in wrap">
+    <div class="compare" data-compare style="--pos: 50%">
+      <img class="compare__a" src="img/e-silk-ivory-md.webp" alt="Unstitched ivory fabric in soft folds" loading="lazy" decoding="async">
+      <img class="compare__b" src="img/p-sahar.webp" alt="A finished ivory suit" loading="lazy" decoding="async" style="object-position: {{ 'p-sahar'|fp }}">
+      <span class="compare__tag compare__tag--a">Unstitched</span>
+      <span class="compare__tag compare__tag--b">Stitched</span>
+      <span class="compare__seam" aria-hidden="true"></span>
+      <span class="compare__needle" aria-hidden="true">{{ icons['scissors']|safe }}</span>
+      <label class="sr" for="compare-range">Drag to compare the fabric and the finished suit</label>
+      <input id="compare-range" class="compare__range" type="range" min="0" max="100" value="50" data-compare-range>
+    </div>
+    <div class="stitch__copy">
+      <h2 id="stitch-h" class="title" data-split>Unstitched, or stitched for you</h2>
+      <p data-rise>Every unstitched suit can be made up before it ships, to a standard size or to your own measurements.</p>
+      <ol class="steps-mini" data-stagger>
+        <li><b>01</b><span>Choose the fabric</span></li>
+        <li><b>02</b><span>Pick a size, or send your measurements</span></li>
+        <li><b>03</b><span>Stitched and pressed in {{ site.stitching.days }} days</span></li>
+      </ol>
+      <p class="fine" data-rise>From <span data-price="{{ site.stitching.standard }}">AED {{ site.stitching.standard }}</span></p>
+      <a class="btn btn--ghost" href="unstitched.html" data-rise>Shop unstitched</a>
+    </div>
+  </div>
+</section>
+
+{# BRIDAL #}
+<section class="bridal-band" aria-labelledby="bridal-h">
+  <div class="bridal-band__media" data-parallax><img src="img/e-bridal-teal.webp" alt="A bride in teal and gold with an embroidered dupatta" loading="lazy" decoding="async" style="object-position: {{ 'e-bridal-teal'|fp }}"></div>
+  <div class="bridal-band__copy wrap">
+    <p class="kicker">Bridal</p>
+    <h2 id="bridal-h" class="title" data-split>Made to measure</h2>
+    <p data-rise>Appointments at our Dubai house, or by video call from anywhere.</p>
+    <a class="btn btn--light" href="bridal-appointments.html" data-rise>Book a bridal visit</a>
+  </div>
+</section>
+
+{# ATELIER #}
+<section class="sec" aria-labelledby="atelier-h">
+  <div class="atelier__in wrap">
+    <div class="atelier__pics">
+      <figure class="frame" data-parallax><img src="img/e-hands-flowers-md.webp" alt="Hands holding fabric embroidered with flowers" loading="lazy" decoding="async" style="object-position: {{ 'e-hands-flowers'|fp }}"></figure>
+      <figure class="frame"><img src="img/e-sequins-md.webp" alt="Close-up of sequins" loading="lazy" decoding="async"></figure>
+    </div>
+    <div class="atelier__copy">
+      <h2 id="atelier-h" class="title" data-split>The atelier</h2>
+      <p data-rise>Our designs are cut, printed and embroidered in Pakistan. Each piece then comes to Dubai, where it is checked, pressed and packed before it ships.</p>
+      <a class="link" href="shipping-returns.html" data-rise>Shipping and returns {{ icons['arrow-right']|safe }}</a>
     </div>
   </div>
 </section>
 
 {# VISIT #}
-<section class="sec visit" aria-labelledby="visit-h">
+<section class="sec" style="padding-top:0" aria-labelledby="visit-h">
   <div class="visit__in wrap">
-    <figure class="visit__fig arch-frame"><img src="img/e-mint-dupatta-md.webp" alt="A woman in a mint suit with a white embroidered dupatta" loading="lazy" decoding="async"></figure>
+    <figure class="visit__fig arch-frame"><img src="img/e-mint-dupatta-md.webp" alt="A woman in a mint suit with a white embroidered dupatta" loading="lazy" decoding="async" style="object-position: {{ 'e-mint-dupatta'|fp }}"></figure>
     <div class="visit__copy">
-      <p class="eyebrow">Visit</p>
-      <h2 id="visit-h" class="h2" data-split>Come and see it in Dubai.</h2>
+      <h2 id="visit-h" class="title" data-split>Visit the boutique</h2>
       <dl class="visit__list" data-stagger>
-        <div><dt>{{ icons['storefront']|safe }} The boutique</dt><dd>{{ site.address }}. Opening hours to come.</dd></div>
-        <div><dt>{{ icons['calendar-blank']|safe }} Private appointments</dt><dd>See the collection in private, at a time that suits you.</dd></div>
-        <div><dt>{{ icons['map-pin']|safe }} Exhibitions</dt><dd>We set up at exhibitions through the year. Follow us to hear where next.</dd></div>
+        <div><dt>Boutique</dt><dd>{{ site.address }}. Opening hours to come.</dd></div>
+        <div><dt>Appointments</dt><dd>Private viewings, at a time that suits you.</dd></div>
+        <div><dt>Exhibitions</dt><dd>Through the year. Dates go up on Instagram first.</dd></div>
       </dl>
       <a class="btn btn--solid" href="https://wa.me/{{ site.whatsapp }}" data-rise>{{ icons['whatsapp-logo']|safe }} Message us on WhatsApp</a>
     </div>
@@ -206,15 +173,17 @@
 {# LIST #}
 <section class="sec join" aria-labelledby="join-h">
   <div class="join__in wrap">
-    <h2 id="join-h" class="h2" data-split>Hear about new pieces before anyone else.</h2>
+    <div style="display:grid;gap:14px">
+      <h2 id="join-h" class="title" data-split>Join the list</h2>
+      <p class="lede">New collections and exhibition dates, by email.</p>
+    </div>
     <form class="join__form" data-join novalidate>
       <label for="join-email">Email address</label>
       <div class="join__row">
         <input id="join-email" type="email" name="email" autocomplete="email" required placeholder="you@example.com">
-        <button class="btn btn--solid" type="submit">Join the list</button>
+        <button class="btn btn--solid" type="submit">Join</button>
       </div>
       <p class="join__msg" data-join-msg role="status"></p>
-      <p class="fine">One email per drop. No spam, and you can leave any time.</p>
     </form>
   </div>
 </section>

@@ -1,52 +1,55 @@
 {% extends "base.html" %}
+{% from "partials/logo.html" import seal %}
 {% block title %}Our story | Falakposh{% endblock %}
-{% block description %}A Dubai house for Pakistani dress since {{ site.founded }}. Why we're called Falakposh, and how a piece reaches you.{% endblock %}
+{% block description %}A Dubai house for Pakistani dress since {{ site.founded }}: the boutique, the name, and how each piece is made.{% endblock %}
 {% block content %}
 <section class="story-hero wrap">
   <div style="display:grid; gap:24px; justify-items:start">
-    <p class="eyebrow" data-rise>Our story</p>
-    <h1 data-split>A Dubai house for Pakistani dress.</h1>
-    <p data-rise>We've dressed women in Dubai since {{ site.founded }}. First in our boutique. Then in private appointments. Then at exhibitions and pop-ups.</p>
-    <p data-rise>Now the whole house is online, and it ships to wherever you are.</p>
+    <p class="kicker" data-rise>Our story</p>
+    <h1 data-split>A Dubai house for Pakistani dress</h1>
+    <p data-rise>Falakposh has dressed women in Dubai since {{ site.founded }}: first in the boutique, then in private appointments and at exhibitions.</p>
+    <p data-rise>Today the full collection is online and ships worldwide from Dubai.</p>
   </div>
-  <figure class="story-hero__fig arch-frame" data-parallax><img src="img/p-falak.webp" alt="A woman in a lapis chiffon suit in an old courtyard" fetchpriority="high"></figure>
+  <figure class="story-hero__fig arch-frame" data-parallax><img src="img/p-falak.webp" alt="A woman in a lapis chiffon suit in an old courtyard" fetchpriority="high" style="object-position: {{ 'p-falak'|fp }}"></figure>
 </section>
 
 <section class="sec" style="background:var(--bg-2)" aria-labelledby="name-h">
-  <div class="prose">
-    <h2 id="name-h" data-split>Falakposh means dressed in the sky.</h2>
-    <p><em lang="ur" style="font-style:normal">فلک</em> (falak) is the sky. <em lang="ur" style="font-style:normal">پوش</em> (posh) means dressed in. Put together, it's what we try to make: clothes that feel as wide and as light as the sky over Dubai.</p>
-    <p>So we name every piece for something up there. Shafaq is the red glow after sunset. Mahtab is moonlight. Kehkashan is the Milky Way.</p>
-    <p class="turn">You'll never buy a piece called "Style 204".</p>
+  <div class="story-seal wrap">
+    {{ seal(uid='story') }}
+    <div class="copy">
+      <h2 id="name-h" class="title" data-split>The name</h2>
+      <p data-rise><span class="ur-d" lang="ur" style="font-size:1.4em">فلک</span> (falak) means sky. <span class="ur-d" lang="ur" style="font-size:1.4em">پوش</span> (posh) means dressed in.</p>
+      <p data-rise>Every piece takes its name from the sky. Shafaq is the glow after sunset, Mahtab is moonlight and Kehkashan is the Milky Way.</p>
+    </div>
   </div>
 </section>
 
 <section class="sec wrap" aria-labelledby="tl-h">
-  <h2 id="tl-h" class="h2 h2--center" data-split style="margin-bottom:48px">How the house grew.</h2>
+  <h2 id="tl-h" class="title" data-split style="text-align:center;margin:0 auto 52px">The house over the years</h2>
   <ol class="timeline" data-stagger>
-    <li class="tl"><span class="tl__year">{{ site.founded }}</span><div><h3>The house opens in Dubai.</h3><p>A boutique, a rail of Pakistani suits, and our first clients.</p></div></li>
-    <li class="tl tl--slot"><span class="tl__year">Year</span><div><h3>Your first exhibition.</h3><p>The year, the venue and what sold out.</p><span class="slot-note">Owner to fill in</span></div></li>
-    <li class="tl tl--slot"><span class="tl__year">Year</span><div><h3>The first bridal.</h3><p>Who it was for, and what it looked like.</p><span class="slot-note">Owner to fill in</span></div></li>
-    <li class="tl tl--slot"><span class="tl__year">Year</span><div><h3>A milestone you're proud of.</h3><p>A move, a new workshop, a client count.</p><span class="slot-note">Owner to fill in</span></div></li>
-    <li class="tl"><span class="tl__year">2026</span><div><h3>The whole house goes online.</h3><p>Every piece, shipped from Dubai to the Gulf, the UK, Europe, North America and Australia.</p></div></li>
+    <li class="tl"><span class="tl__year">{{ site.founded }}</span><div><h3>The boutique opens in Dubai</h3><p>Pakistani unstitched, ready to wear and formals.</p></div></li>
+    <li class="tl tl--slot"><span class="tl__year">Year</span><div><h3>First exhibition</h3><p>Where it was, and what the collection was.</p><span class="slot-note">Owner to fill in</span></div></li>
+    <li class="tl tl--slot"><span class="tl__year">Year</span><div><h3>First bridal</h3><p>The first made-to-measure bridal outfit.</p><span class="slot-note">Owner to fill in</span></div></li>
+    <li class="tl tl--slot"><span class="tl__year">Year</span><div><h3>A milestone</h3><p>A new space, a new workshop, a client count.</p><span class="slot-note">Owner to fill in</span></div></li>
+    <li class="tl"><span class="tl__year">2026</span><div><h3>The collection goes online</h3><p>Shipping from Dubai to the Gulf, the UK, Europe, North America and Australia.</p></div></li>
   </ol>
 </section>
 
 <section class="sec wrap" style="padding-top:0" aria-labelledby="val-h">
-  <h2 id="val-h" class="h2" data-split style="margin-bottom:40px">What doesn't change when you buy online.</h2>
+  <h2 id="val-h" class="title" data-split style="margin-bottom:40px">How a piece is made</h2>
   <div class="values" data-stagger>
-    <div><b>Made by hand in Pakistan.</b><p>Our designs are cut, printed and embroidered by karigars in Pakistan. The hand work is the point, so we don't rush it.</p><p>Then each piece comes to Dubai, where we check it, press it and pack it ourselves.</p></div>
-    <div><b>Someone real answers.</b><p>Message us on WhatsApp and a person from the house replies. Not a bot.</p></div>
-    <div><b>We fix the fit.</b><p>If a stitched piece doesn't sit right, tell us. We'll alter it.</p></div>
+    <div><b>Made in Pakistan</b><p>Our designs are cut, printed and embroidered by karigars in Pakistan.</p></div>
+    <div><b>Finished in Dubai</b><p>Each piece is checked, pressed and packed at our house before it ships.</p></div>
+    <div><b>Fitted to you</b><p>Stitched pieces can be altered after delivery if the fit needs it.</p></div>
   </div>
 </section>
 
-<section class="sec join" aria-label="Visit">
+<section class="sec join" aria-labelledby="visit-h">
   <div class="join__in wrap">
-    <h2 class="h2">Come and see it in Dubai.</h2>
+    <h2 id="visit-h" class="title">Visit the boutique</h2>
     <div style="display:grid; gap:16px; justify-items:start">
-      <p style="color:color-mix(in srgb, var(--bg) 80%, transparent)">{{ site.address }}. Or book a private appointment at a time that suits you.</p>
-      <a class="btn btn--solid" href="visit.html">Plan your visit</a>
+      <p class="lede">{{ site.address }}. Private appointments on request.</p>
+      <a class="btn btn--solid" href="visit.html">Plan a visit</a>
     </div>
   </div>
 </section>

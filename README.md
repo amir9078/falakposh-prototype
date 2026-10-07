@@ -1,7 +1,7 @@
 # Falakposh storefront prototype
 
 Live preview: https://amir9078.github.io/falakposh-prototype/ (GitHub Pages, served from the `gh-pages` branch)
-Private copy: https://claude.ai/artifact/N8J1qhEz1PmbmjjxATTL6m
+Private copy (first, navy version, not updated): https://claude.ai/artifact/N8J1qhEz1PmbmjjxATTL6m
 
 A static prototype of the Falakposh store. It is laid out so each template maps onto a Shopify theme section later.
 
@@ -18,6 +18,15 @@ A static prototype of the Falakposh store. It is laid out so each template maps 
 - Local preview: the `falakposh-proto` server in `.claude/launch.json` (port 8190).
 - Screenshots: `node _review/capture.mjs <outDir> page.html [--dark] [--sections] [--size=desktop|mobile]`. Start headless Chrome on port 9334 first if the script can't open it.
 
+## Identity (redesign, 7 Oct 2026)
+
+- **Palette, Kohl and Zari**: muslin ivory `#F5F2ED`, kohl `#17130F`, zari gold `#A8864C` (marks and hairlines only, never body text), panels `#ECE7DF`. Night theme flips to kohl with ivory text.
+- **Logo**: the name set twice. Urdu in Gulzar with the dotless fa (U+06A1); a zari star replaces its dot (1.3667em right of the word centre, 0.75em above the baseline, measured from the font). Three forms in `templates/partials/logo.html`: header lockup, stacked, and a round seal. PNG exports and an Instagram avatar are in `../../brand/logo/`.
+- **Type**: Bodoni Moda for names and titles, Gulzar for Urdu names, Noto Nastaliq Urdu for small Urdu, Jost for labels and body.
+- **Photos**: `data/images.json` sets each photo's focus point (used for object-position in every frame) and its close-up crop. `build.py --images` re-cuts every photo and applies one house grade (a little less saturation, soft S-curve, lifted blacks, faint warm cast) so stand-ins from different shoots sit together.
+- **One night band** on the home page carries the gold sequin sky; the sequin "2010" sits in the house section.
+- `brand.html` shows the marks, colours and type.
+
 ## What lives where
 
 | File | What it is | Shopify later |
@@ -30,6 +39,8 @@ A static prototype of the Falakposh store. It is laid out so each template maps 
 | `templates/product.html` | Product page, stitching options, sizes | `templates/product.json` |
 | `templates/bridal.html`, `story.html`, `pages/*` | Bridal booking, story, help pages | Page templates |
 | `static/js/sequins.js` | The sequin sky and the sequin "2010" | Theme asset, unchanged |
+| `data/images.json` | Focus point and close-up crop per photo | Image focal points in Shopify |
+| `templates/partials/logo.html` | Lockup, stacked mark, seal | Snippets |
 
 ## Still a sample: confirm before launch
 
