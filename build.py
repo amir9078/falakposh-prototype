@@ -86,6 +86,9 @@ def save(im, name, q=80):
     return im.size
 
 
+FULL_BLEED = {"e-hero-falak", "e-bridal-teal"}   # shown edge to edge: the home hero, the bridal band and bridal page
+
+
 def build_images(frames):
     (DIST / "img").mkdir(parents=True, exist_ok=True)
     for old in (DIST / "img").glob("*.webp"):
@@ -109,8 +112,11 @@ def build_images(frames):
             save(detail, f"{stem}-detail")
             save(fit(detail, 560), f"{stem}-detail-sm")
         else:
+            if stem in FULL_BLEED:
+                save(fit(im, 2400), f"{stem}-xl", 78)   # sharp on wide and high-density screens
+                save(fit(im, 1300), f"{stem}-lg", 80)
             big = fit(im, 1800)
-            save(big, stem, 78)
+            save(big, stem, 80 if stem in FULL_BLEED else 78)
             save(fit(big, 900), f"{stem}-md", 78)
 
 
@@ -152,7 +158,10 @@ def main():
         im.save(DIST / "social" / f"highlight-{png.stem.split('-', 2)[2]}.webp", "WEBP", quality=88, method=6)
 
     env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=select_autoescape(["html"]))
-    env.globals.update(site=site, icons=icon_svgs(), cats=cats, categories=site["categories"],
+    # A version stamp for the CSS and JS links, so a new build never meets a cached old stylesheet.
+    import hashlib
+    stamp = hashlib.sha1(b"".join(f.read_bytes() for f in sorted((ROOT / "static").rglob("*.*")))).hexdigest()[:8]
+    env.globals.update(v=stamp, site=site, icons=icon_svgs(), cats=cats, categories=site["categories"],
                        products=products, by_cat=by_cat, year=2026,
                        years=2026 - site["founded"])
     env.filters["aed"] = lambda v: f"{v:,.0f}"

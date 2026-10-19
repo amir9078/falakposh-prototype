@@ -217,15 +217,26 @@ ul, ol { padding: 0; list-style: none; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 
 /* ---------- announcement + header ---------- */
-.ann { background: var(--band); color: var(--band-ink); height: 34px; overflow: hidden; }
-.ann__track { position: relative; height: 100%; }
-.ann__track p { position: absolute; inset: 0; display: grid; place-items: center; font: 500 .66rem/1 var(--f-ui); letter-spacing: .26em; text-transform: uppercase; opacity: 0; transform: translateY(8px); transition: opacity .6s, transform .6s var(--ease); }
-.ann__track p.is-on { opacity: 1; transform: none; }
+/* The bar: one slow ticker of house news, stars between the lines, edges fading into the band.
+   Two copies of the list run side by side so the loop is seamless; hovering pauses it. */
+.ann { position: relative; background: var(--band); color: var(--band-ink); height: 34px; overflow: hidden; }
+.ann::before, .ann::after { content: ""; position: absolute; top: 0; bottom: 0; width: clamp(40px, 8vw, 140px); z-index: 1; pointer-events: none; }
+.ann::before { left: 0; background: linear-gradient(90deg, var(--band), transparent); }
+.ann::after { right: 0; background: linear-gradient(270deg, var(--band), transparent); }
+.ann__track { display: flex; width: max-content; height: 100%; animation: annRun 56s linear infinite; }
+.ann:hover .ann__track { animation-play-state: paused; }
+.ann__run { display: flex; align-items: center; flex-shrink: 0; }
+.ann__run li { font: 500 .66rem/1 var(--f-ui); letter-spacing: .26em; text-transform: uppercase; white-space: nowrap; padding: 0 clamp(22px, 2.6vw, 40px); }
+.ann__run .ann__star { padding: 0; display: grid; }
+.ann__star svg { width: 9px; height: 11px; fill: var(--band-zari); animation: annStar 3.6s ease-in-out infinite; }
+.ann__run li:nth-child(4n) svg { animation-delay: -1.8s; }
+@keyframes annRun { to { transform: translateX(-50%); } }
+@keyframes annStar { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.6); } }
 
 .hdr { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid transparent; transition: transform .5s var(--ease), border-color .3s; }
 .hdr.is-stuck { border-color: var(--line); }
 .hdr.is-hidden { transform: translateY(-100%); }
-.hdr__in { max-width: var(--max); margin: 0 auto; padding: 0 var(--gut); height: var(--hdr-h); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; }
+.hdr__in { margin: 0 auto; padding: 0 var(--gut); height: var(--hdr-h); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; }
 .hdr__burger { display: none; }
 .hdr__nav ul { display: flex; gap: clamp(16px, 2.2vw, 34px); }
 .hdr__link { font: 500 var(--fs-label)/1 var(--f-ui); letter-spacing: .2em; text-transform: uppercase; padding: 12px 0; position: relative; white-space: nowrap; }
@@ -348,14 +359,33 @@ ul, ol { padding: 0; list-style: none; }
 [data-split].pre .w > span { transform: translateY(108%); transition: none; }
 [data-stagger] > * { transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: calc(var(--i) * 100ms + .1s); }
 [data-stagger].pre > * { opacity: 0; transform: translateY(14px); transition: none; }
+/* Pictures arrive the way the hero does: a curtain opens upward and the photo settles from a slow zoom.
+   Arch frames keep their arch clip, so there the photo inside is unveiled; pictures that drift on scroll
+   (data-parallax, moved by GSAP) only get the curtain. */
+[data-unveil]:not([data-unveil="img"]) { clip-path: inset(0); transition: clip-path 1.4s cubic-bezier(.7, 0, .2, 1) var(--d, 0s); }
+[data-unveil]:not([data-unveil="img"]).pre { clip-path: inset(100% 0 0 0); transition: none; }
+[data-unveil="img"] img { clip-path: inset(0); transition: clip-path 1.4s cubic-bezier(.7, 0, .2, 1) var(--d, 0s); }
+[data-unveil="img"].pre img { clip-path: inset(100% 0 0 0); transition: none; }
+[data-unveil]:not([data-parallax]) img { transition: clip-path 1.4s cubic-bezier(.7, 0, .2, 1) var(--d, 0s), transform 2.2s var(--ease) var(--d, 0s); }
+[data-unveil]:not([data-parallax]).pre img { transform: scale(1.14); transition: none; }
 @keyframes riseIn { from { opacity: 0; transform: translateY(22px); } }
 @keyframes unveil { from { clip-path: inset(0 0 100% 0); transform: translateY(.3em); } to { clip-path: inset(-10% 0 -15% 0); } }
 @keyframes settle { from { transform: scale(1.08); } to { transform: scale(1); } }
+@keyframes heroOpen { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+@keyframes heroSettle { from { transform: scale(1.16); } to { transform: scale(1.02); } }
+@keyframes heroDrift { from { transform: scale(1.02); } to { transform: scale(1.07) translate3d(-1%, -1.2%, 0); } }
+@keyframes heroFrame { from { opacity: 0; transform: scale(.985); } to { opacity: 1; transform: none; } }
 
 /* ---------- hero: one campaign image, one title ---------- */
 .hero { display: grid; grid-template-columns: 1.12fr 1fr; min-height: calc(100dvh - var(--hdr-h) - 34px); max-height: 900px; }
-.hero__media { position: relative; overflow: hidden; background: var(--bg-2); }
-.hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: settle 2.4s var(--ease) both; }
+/* The picture opens like a curtain, settles from a slow zoom, then keeps breathing; a hairline frame in rose
+   gold comes in last. On the first visit all of it waits until the logo curtain lifts. */
+.hero__media { position: relative; overflow: hidden; background: var(--band); animation: heroOpen 1.5s cubic-bezier(.7, 0, .2, 1) both; }
+.hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 30%;
+  animation: heroSettle 2.8s var(--ease) both, heroDrift 22s ease-in-out 2.8s infinite alternate; }
+.hero__frame { position: absolute; inset: clamp(14px, 1.6vw, 26px); border: 1px solid color-mix(in srgb, var(--band-zari) 70%, transparent); pointer-events: none; animation: heroFrame 1.4s var(--ease) 1.5s both; }
+.intro-on:not(.intro-out) .hero__media, .intro-on:not(.intro-out) .hero__media img, .intro-on:not(.intro-out) .hero__frame,
+.intro-on:not(.intro-out) .hero__copy > * { animation-play-state: paused; }
 .hero__copy { display: grid; align-content: center; justify-items: start; gap: 26px; padding: 56px clamp(28px, 6vw, 110px); }
 .hero__copy > * { animation: riseIn 1.1s var(--ease) both; animation-delay: var(--d, 0s); }
 .hero__title { font: 400 var(--fs-hero)/.92 var(--f-display); letter-spacing: -.03em; animation: unveil 1.3s var(--ease) .2s both !important; }
@@ -772,7 +802,7 @@ tbody tr + tr td { border-top: 1px solid var(--line); }
 @media (max-width: 767px) {
   .hdr__tools .cur, .hdr__tools .theme-btn { display: none; }
   .hdr__tools .icon-btn { width: 40px; height: 40px; }
-  .ann__track p { font-size: .6rem; letter-spacing: .18em; padding: 0 12px; }
+  .ann__run li { font-size: .6rem; letter-spacing: .2em; }
   .hero__media { aspect-ratio: 4 / 5; max-height: 48vh; }
   .hero__ur { display: none; }
   .hero__copy { padding-top: 26px; gap: 16px; }
@@ -820,4 +850,7 @@ tbody tr + tr td { border-top: 1px solid var(--line); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .pre, .pre > *, .pre .w > span { opacity: 1 !important; transform: none !important; }
+  .ann__track { width: 100%; justify-content: center; animation: none !important; }
+  .ann__run[aria-hidden], .ann__run li:not(:first-child) { display: none; }
+  .hero__media, .hero__media img, .hero__frame { animation: none !important; }
 }

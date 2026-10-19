@@ -237,7 +237,7 @@
   <a class="btn btn--solid" href="index.html">See the site in Jamun</a>
 </section>
 {% endblock %}
-{% block scripts %}<script src="assets/js/sequins.js" defer></script>
+{% block scripts %}<script src="assets/js/sequins.js?v={{ v }}" defer></script>
 <script>
   // play the cover once it is on screen
   addEventListener('load', () => setTimeout(() => document.querySelector('#cover [data-replay]') && document.querySelector('#cover .fp-logo') && !matchMedia('(prefers-reduced-motion: reduce)').matches && (document.querySelector('#cover .fp-logo').classList.add('is-writing')), 300));

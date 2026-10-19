@@ -23,6 +23,7 @@
     const close = () => {
       if (closed) return; closed = true;
       intro.classList.add('is-done');
+      root.classList.add('intro-out');      // the hero's entrance plays as the curtain lifts
       try { sessionStorage.setItem('fp-intro', '1'); } catch (e) {}
       setTimeout(() => { root.classList.remove('intro-on'); intro.remove(); }, 1050);
     };

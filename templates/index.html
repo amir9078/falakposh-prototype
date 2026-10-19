@@ -8,16 +8,17 @@
 {# HERO: the current campaign. One photograph, one name. #}
 <section class="hero" aria-labelledby="hero-h">
   <div class="hero__media">
-    <img src="img/p-falak.webp" width="1000" height="1500" alt="Falak, a lapis chiffon suit with an ivory organza dupatta, in an old courtyard" fetchpriority="high" style="object-position: {{ 'p-falak'|fp }}">
+    <img src="img/e-hero-falak.webp" srcset="img/e-hero-falak-md.webp 900w, img/e-hero-falak-lg.webp 1300w, img/e-hero-falak.webp 1800w, img/e-hero-falak-xl.webp 2400w" sizes="(max-width: 1023px) 100vw, 53vw" width="1800" height="2700" alt="Falak, a lapis chiffon suit with an ivory organza dupatta, in an old courtyard" fetchpriority="high" decoding="async" style="object-position: {{ 'e-hero-falak'|fp }}">
+    <span class="hero__frame" aria-hidden="true"></span>
   </div>
   <div class="hero__copy">
     <p class="kicker" style="--d:.1s">Winter Festive 2026</p>
-    <h1 id="hero-h" class="hero__title">Kehkashan <em>The wedding edit</em></h1>
+    <h1 id="hero-h" class="hero__title">Kehkashan <em>The festive edit</em></h1>
     <p class="hero__ur" lang="ur" style="--d:.45s">کہکشاں</p>
-    <p class="hero__sub" style="--d:.55s">Midnight, silver, plum and lapis. Six formals for this season's weddings.</p>
+    <p class="hero__sub" style="--d:.55s">Midnight, silver, plum and lapis. Six formals for the festive season.</p>
     <div class="hero__ctas" style="--d:.65s">
       <a class="btn btn--solid" href="formals.html">Shop the edit</a>
-      <a class="btn btn--ghost" href="bridal-appointments.html">Book a bridal visit</a>
+      <a class="btn btn--ghost" href="shop.html">See all pieces</a>
     </div>
     <div class="hero__meta" style="--d:.8s">
       <div><b>Since {{ site.founded }}</b><span>Boutique in Dubai</span></div>
@@ -34,7 +35,7 @@
     <div class="cats" data-stagger>
       {% for c in categories %}
       <a class="cat" href="{{ c.slug }}.html">
-        <span class="cat__img"><img src="img/{{ c.hero }}{% if c.hero.startswith('p-') %}-sm{% else %}-md{% endif %}.webp" alt="" loading="lazy" decoding="async" style="object-position: {{ c.hero|fp }}"></span>
+        <span class="cat__img" data-unveil style="--d: {{ loop.index0 * 0.12 }}s"><img src="img/{{ c.hero }}{% if c.hero.startswith('p-') %}-sm{% else %}-md{% endif %}.webp" alt="" loading="lazy" decoding="async" style="object-position: {{ c.hero|fp }}"></span>
         <span class="cat__row"><span class="cat__name">{{ c.name }}</span><span class="cat__ur" lang="ur">{{ c.urdu }}</span></span>
       </a>
       {% endfor %}
@@ -49,7 +50,7 @@
     <div class="night__text" data-sky-clear>
       <p class="kicker">Kehkashan</p>
       <p class="night__ur" lang="ur" aria-hidden="true">کہکشاں</p>
-      <h2 id="night-h" class="title" data-split>The wedding edit</h2>
+      <h2 id="night-h" class="title" data-split>The festive edit</h2>
       <p class="night__p" data-rise>Kehkashan is Urdu for the Milky Way. Sequins run across midnight chiffon, silver tissue and black organza.</p>
     </div>
   </div>
@@ -97,14 +98,14 @@
       <p data-rise>We began with a boutique in Dubai, then private appointments and exhibitions. Since {{ site.founded }}, the same house has dressed women for Eid, weddings and every day.</p>
       <a class="link" href="story.html" data-rise>Our story {{ icons['arrow-right']|safe }}</a>
     </div>
-    <figure class="house__fig arch-frame" data-parallax><img src="img/e-hands-sewing-md.webp" alt="Hands sewing white fabric with a needle and thread" loading="lazy" decoding="async" style="object-position: {{ 'e-hands-sewing'|fp }}"></figure>
+    <figure class="house__fig arch-frame" data-parallax data-unveil="img"><img src="img/e-hands-sewing-md.webp" alt="Hands sewing white fabric with a needle and thread" loading="lazy" decoding="async" style="object-position: {{ 'e-hands-sewing'|fp }}"></figure>
   </div>
 </section>
 
 {# STITCHING #}
 <section class="sec" aria-labelledby="stitch-h">
   <div class="stitch__in wrap">
-    <div class="compare" data-compare style="--pos: 50%">
+    <div class="compare" data-compare data-unveil style="--pos: 50%">
       <img class="compare__a" src="img/e-silk-ivory-md.webp" alt="Unstitched ivory fabric in soft folds" loading="lazy" decoding="async">
       <img class="compare__b" src="img/p-sahar.webp" alt="A finished ivory suit" loading="lazy" decoding="async" style="object-position: {{ 'p-sahar'|fp }}">
       <span class="compare__tag compare__tag--a">Unstitched</span>
@@ -130,7 +131,7 @@
 
 {# BRIDAL #}
 <section class="bridal-band" aria-labelledby="bridal-h">
-  <div class="bridal-band__media" data-parallax><img src="img/e-bridal-teal.webp" alt="A bride in teal and gold with an embroidered dupatta" loading="lazy" decoding="async" style="object-position: {{ 'e-bridal-teal'|fp }}"></div>
+  <div class="bridal-band__media" data-parallax data-unveil><img src="img/e-bridal-teal.webp" srcset="img/e-bridal-teal-md.webp 900w, img/e-bridal-teal-lg.webp 1300w, img/e-bridal-teal.webp 1800w, img/e-bridal-teal-xl.webp 2400w" sizes="100vw" alt="A bride in teal and gold with an embroidered dupatta" loading="lazy" decoding="async" style="object-position: {{ 'e-bridal-teal'|fp }}"></div>
   <div class="bridal-band__copy wrap">
     <p class="kicker">Bridal</p>
     <h2 id="bridal-h" class="title" data-split>Made to measure</h2>
@@ -143,8 +144,8 @@
 <section class="sec" aria-labelledby="atelier-h">
   <div class="atelier__in wrap">
     <div class="atelier__pics">
-      <figure class="frame" data-parallax><img src="img/e-hands-flowers-md.webp" alt="Hands holding fabric embroidered with flowers" loading="lazy" decoding="async" style="object-position: {{ 'e-hands-flowers'|fp }}"></figure>
-      <figure class="frame"><img src="img/e-sequins-md.webp" alt="Close-up of sequins" loading="lazy" decoding="async"></figure>
+      <figure class="frame" data-parallax data-unveil><img src="img/e-hands-flowers-md.webp" alt="Hands holding fabric embroidered with flowers" loading="lazy" decoding="async" style="object-position: {{ 'e-hands-flowers'|fp }}"></figure>
+      <figure class="frame" data-unveil style="--d: .18s"><img src="img/e-sequins-md.webp" alt="Close-up of sequins" loading="lazy" decoding="async"></figure>
     </div>
     <div class="atelier__copy">
       <h2 id="atelier-h" class="title" data-split>The atelier</h2>
@@ -157,7 +158,7 @@
 {# VISIT #}
 <section class="sec" style="padding-top:0" aria-labelledby="visit-h">
   <div class="visit__in wrap">
-    <figure class="visit__fig arch-frame"><img src="img/e-mint-dupatta-md.webp" alt="A woman in a mint suit with a white embroidered dupatta" loading="lazy" decoding="async" style="object-position: {{ 'e-mint-dupatta'|fp }}"></figure>
+    <figure class="visit__fig arch-frame" data-unveil="img"><img src="img/e-mint-dupatta-md.webp" alt="A woman in a mint suit with a white embroidered dupatta" loading="lazy" decoding="async" style="object-position: {{ 'e-mint-dupatta'|fp }}"></figure>
     <div class="visit__copy">
       <h2 id="visit-h" class="title" data-split>Visit the boutique</h2>
       <dl class="visit__list" data-stagger>
@@ -188,4 +189,4 @@
   </div>
 </section>
 {% endblock %}
-{% block scripts %}<script src="assets/js/sequins.js" defer></script>{% endblock %}
+{% block scripts %}<script src="assets/js/sequins.js?v={{ v }}" defer></script>{% endblock %}
