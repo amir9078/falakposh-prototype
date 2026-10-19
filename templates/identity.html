@@ -108,11 +108,20 @@
   .igg .solid .fp-logo { width: 100%; height: auto; }
   .igg .word { background: var(--t-panel); display: grid; place-items: center; font: italic 400 1rem var(--f-display); color: var(--t-accent); text-align: center; padding: 8px; }
 
+  .social { display: grid; grid-template-columns: 1.3fr .7fr; gap: clamp(24px, 4vw, 64px); align-items: start; }
+  .social__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  .social__grid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--bg-2); }
+  .social__side { display: grid; gap: 26px; justify-items: center; }
+  .social__story { width: min(300px, 100%); aspect-ratio: 9 / 16; object-fit: cover; box-shadow: 0 34px 60px -42px rgba(42, 22, 38, .55); }
+  .social__hl { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .social__hl figure { display: grid; justify-items: center; gap: 8px; font-size: .82rem; color: var(--ink-2); }
+  .social__hl img { width: 66px; height: 66px; border-radius: 50%; outline: 1px solid var(--line-2); outline-offset: 3px; }
+
   .choose { display: grid; justify-items: center; text-align: center; gap: 16px; padding-block: clamp(60px, 8vw, 110px); background: var(--bg-2); }
   .choose p { color: var(--ink-2); max-width: 52ch; }
 
   @media (max-width: 1023px) {
-    .anatomy, .motion, .dirs { grid-template-columns: 1fr; }
+    .anatomy, .motion, .dirs, .social { grid-template-columns: 1fr; }
     .apps > * { grid-column: 1 / -1 !important; }
   }
 </style>
@@ -202,6 +211,21 @@
         <div class="word">Winter Festive 2026</div>
         <div><img src="img/p-falak-sm.webp" alt="" style="object-position: {{ 'p-falak'|fp }}"></div>
         <div><img src="img/e-sequins-md.webp" alt=""></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="id-sec wrap" style="padding-top:0" aria-labelledby="ig-h">
+  <div class="id-h"><p class="kicker">Instagram</p><h2 id="ig-h" class="title">A post for every piece</h2><p>Each piece gets a post from one shared template, filled in from the product list. The story and the highlight covers follow the same style.</p></div>
+  <div class="social">
+    <div class="social__grid">
+      {% for s in ['kehkashan', 'shafaq', 'sahar', 'suraiya', 'jugnu', 'ufaq', 'aasmaan', 'tulu', 'sitara'] %}<img src="social/post-{{ s }}.webp" alt="Instagram post for {{ s|capitalize }}" loading="lazy" decoding="async">{% endfor %}
+    </div>
+    <div class="social__side">
+      <img class="social__story" src="social/story.webp" alt="Instagram story announcing Kehkashan" loading="lazy" decoding="async">
+      <div class="social__hl">
+        {% for h, label in [('unstitched', 'Unstitched'), ('ready-to-wear', 'Ready to wear'), ('formals', 'Formals'), ('bridal', 'Bridal'), ('visit-us', 'Visit us')] %}<figure><img src="social/highlight-{{ h }}.webp" alt="" loading="lazy" decoding="async"><figcaption>{{ label }}</figcaption></figure>{% endfor %}
       </div>
     </div>
   </div>

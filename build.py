@@ -137,6 +137,19 @@ def main():
     (DIST / "brand").mkdir(exist_ok=True)
     for svg in (ROOT.parent.parent / "brand" / "logo" / "svg-flat").glob("falakposh-*.svg"):
         shutil.copy(svg, DIST / "brand" / svg.name)
+    # The Instagram set exported from Doory, for the identity page.
+    social_src = ROOT.parent.parent / "social" / "instagram"
+    (DIST / "social").mkdir(exist_ok=True)
+    for png in (social_src / "posts").glob("*.png"):
+        slug = png.stem.split("-", 1)[1]
+        fit(Image.open(png), 720).save(DIST / "social" / f"post-{slug}.webp", "WEBP", quality=84, method=6)
+    if (social_src / "story-template.png").exists():
+        fit(Image.open(social_src / "story-template.png"), 540).save(DIST / "social" / "story.webp", "WEBP", quality=84, method=6)
+    for png in social_src.glob("highlight-*.png"):
+        im = Image.open(png).convert("RGB")
+        side = im.width
+        im = im.crop((0, (im.height - side) // 2, side, (im.height + side) // 2)).resize((200, 200), Image.LANCZOS)
+        im.save(DIST / "social" / f"highlight-{png.stem.split('-', 2)[2]}.webp", "WEBP", quality=88, method=6)
 
     env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=select_autoescape(["html"]))
     env.globals.update(site=site, icons=icon_svgs(), cats=cats, categories=site["categories"],

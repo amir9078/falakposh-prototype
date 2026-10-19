@@ -55,7 +55,7 @@ so the logo files are published at `/brand/*.svg` (flat copies made by `build_lo
 
 ## Still a sample: confirm before launch
 
-- **Photos**: two are original (Kehkashan, Falak, made in Canva). The other 20 products and 7 editorial pictures were generated on 2026-10-19 with FLUX.1-schnell on AI Horde (free, no account), each written from the product's own colour, fabric and description (`../_img_src/gen/gen.py`, prompts in `prompts.json`). They show pieces that don't exist yet. Replace them with the Falakposh shoot. The Unsplash pictures they replaced are kept in `../_img_src/unsplash/`.
+- **Photos**: two are original (Kehkashan, Falak, made in Canva). The rest are Unsplash stand-ins showing other labels' clothes. Replace them all with the Falakposh shoot. Canva's AI image credits ran out on 2026-10-05.
 - **Founding year**: shows 2010. The owner said 2010 or 2011.
 - **Prices, tags** ("New", "Most loved"), **fabric lengths** and **product stories**: samples.
 - **Policies**: stitching prices (AED 120 / 160) and time (7 to 10 days), free UAE delivery over AED 500, delivery windows, 14-day returns, bridal lead time (10 to 12 weeks), two fittings, size chart.
