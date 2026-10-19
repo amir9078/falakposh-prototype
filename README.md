@@ -28,6 +28,14 @@ A static prototype of the Falakposh store. It is laid out so each template maps 
 - **One night band** on the home page carries the gold sequin sky; the sequin "2010" sits in the house section.
 - `identity.html` presents the logo, its motion, the three palettes and the applications (bag, tag, cards, tissue, Instagram grid).
 
+## Social designs in Doory
+
+The Instagram templates live in Doory, the open-source design editor installed on this PC (`Desktop/Claude Code/Doory`,
+http://localhost:8096, login in `Doory/.local-access`). It holds the Falakposh brand kit (Jamun colours, Bodoni Moda,
+Gulzar and Jost, six logo files) and three templates: product post (1080 x 1350), story (1080 x 1920) and highlight
+covers. The product post is filled once per product from `data/products.json`. Doory imports pictures by public link,
+so the logo files are published at `/brand/*.svg` (flat copies made by `build_logo.py` that its importer can read).
+
 ## What lives where
 
 | File | What it is | Shopify later |
@@ -47,7 +55,7 @@ A static prototype of the Falakposh store. It is laid out so each template maps 
 
 ## Still a sample: confirm before launch
 
-- **Photos**: two are original (Kehkashan, Falak, made in Canva). The rest are Unsplash stand-ins showing other labels' clothes. Replace them all with the Falakposh shoot. Canva's AI image credits ran out on 2026-10-05.
+- **Photos**: two are original (Kehkashan, Falak, made in Canva). The other 20 products and 7 editorial pictures were generated on 2026-10-19 with FLUX.1-schnell on AI Horde (free, no account), each written from the product's own colour, fabric and description (`../_img_src/gen/gen.py`, prompts in `prompts.json`). They show pieces that don't exist yet. Replace them with the Falakposh shoot. The Unsplash pictures they replaced are kept in `../_img_src/unsplash/`.
 - **Founding year**: shows 2010. The owner said 2010 or 2011.
 - **Prices, tags** ("New", "Most loved"), **fabric lengths** and **product stories**: samples.
 - **Policies**: stitching prices (AED 120 / 160) and time (7 to 10 days), free UAE delivery over AED 500, delivery windows, 14-day returns, bridal lead time (10 to 12 weeks), two fittings, size chart.
