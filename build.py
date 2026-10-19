@@ -133,6 +133,10 @@ def main():
     if "--images" in sys.argv or not img_dir.exists() or not any(img_dir.iterdir()):
         build_images(frames)
     shutil.copytree(ROOT / "static", DIST / "assets", dirs_exist_ok=True)
+    # The logo as plain SVG files, for design apps that import by link (Doory, Canva).
+    (DIST / "brand").mkdir(exist_ok=True)
+    for svg in (ROOT.parent.parent / "brand" / "logo" / "svg-flat").glob("falakposh-*.svg"):
+        shutil.copy(svg, DIST / "brand" / svg.name)
 
     env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=select_autoescape(["html"]))
     env.globals.update(site=site, icons=icon_svgs(), cats=cats, categories=site["categories"],
