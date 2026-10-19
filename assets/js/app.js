@@ -179,9 +179,6 @@
     if (wish.has(s)) toast('Saved. Find it under the heart at the top.');
   });
 
-  /* ---------- announcement ---------- */
-  const ann = $$('[data-ann] p');
-  if (ann.length > 1 && !reduce) { let a = 0; setInterval(() => { ann[a].classList.remove('is-on'); a = (a + 1) % ann.length; ann[a].classList.add('is-on'); }, 4200); }
 
   /* ---------- nav hover preview ---------- */
   const peek = $('[data-peek-panel]');
@@ -203,7 +200,7 @@
   $$('[data-stagger]').forEach(g => [...g.children].forEach((c, i) => c.style.setProperty('--i', i)));
   // Two watchers: one just below the fold hides an element a moment before it arrives,
   // the other plays it in as it enters. Anything already on screen is never hidden.
-  const revealables = $$('[data-rise], [data-split], [data-stagger], .stop').filter(el => !el.closest('.hero'));
+  const revealables = $$('[data-rise], [data-split], [data-stagger], [data-unveil], .stop').filter(el => !el.closest('.hero'));
   if (!reduce && 'IntersectionObserver' in window) {
     const show = new IntersectionObserver(es => es.forEach(en => {
       if (!en.isIntersecting) return;
